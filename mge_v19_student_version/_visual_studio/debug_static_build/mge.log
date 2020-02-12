@@ -1,0 +1,20 @@
+﻿  main.cpp
+  AbstractBehaviour.cpp
+  KeysBehaviour.cpp
+  RotatingBehaviour.cpp
+  AbstractGame.cpp
+  Camera.cpp
+  GameObject.cpp
+  Light.cpp
+  Mesh.cpp
+  Renderer.cpp
+  ShaderProgram.cpp
+  Texture.cpp
+  World.cpp
+  AbstractMaterial.cpp
+  ColorMaterial.cpp
+  TextureMaterial.cpp
+  MGEDemo.cpp
+  DebugHud.cpp
+  Generating Code...
+  mge.vcxproj -> C:\Users\denni\Documents\Project Startup\mge_v19_student_version\_visual_studio\debug_static_exe/mge.exe
