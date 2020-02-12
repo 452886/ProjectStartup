@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include <stdio.h>
 #include "glm.hpp"
 
 #include "mge/core/Renderer.hpp"
@@ -59,26 +59,18 @@ void DefaultScene::_initializeScene()
 
     //SCENE SETUP
 
-   //add camera first (it will be updated last)
-    Camera* camera = new Camera ("camera", glm::vec3(0,6,7));
-    camera->rotate(glm::radians(-40.0f), glm::vec3(1,0,0));
+   //add camernewa first (it will be updated last)
+    camera = new Camera ("camera", glm::vec3(0,3,3));
+    //camera->rotate(glm::radians(-40.0f), glm::vec3(1, 0, 0));
     _world->add(camera);
     _world->setMainCamera(camera);
 
     //add the floor
     GameObject* plane = new GameObject ("plane", glm::vec3(0,0,0));
-    plane->scale(glm::vec3(5,5,5));
+    plane->scale(glm::vec3(10,10,10));
     plane->setMesh(planeMeshDefault);
     plane->setMaterial(runicStoneMaterial);
     _world->add(plane);
-
-    //add a spinning sphere
-    GameObject* sphere = new GameObject ("sphere", glm::vec3(0,0,0));
-    sphere->scale(glm::vec3(2.5,2.5,2.5));
-    sphere->setMesh (sphereMeshS);
-    sphere->setMaterial(runicStoneMaterial);
-    sphere->setBehaviour (new RotatingBehaviour());
-    _world->add(sphere);
 
     //add a light. Note that the light does ABSOLUTELY ZIP! NADA ! NOTHING !
     //It's here as a place holder to get you started.
@@ -91,12 +83,31 @@ void DefaultScene::_initializeScene()
     light->setMaterial(lightMaterial);
     light->setBehaviour(new KeysBehaviour(25));
     _world->add(light);
+}
 
+void DefaultScene::updateCamera() {
+    sf::Vector2u screenSize = _window->getSize();
+    sf::Vector2i rawMousePos = sf::Mouse::getPosition(*_window);
+
+    sf::Vector2f mousePos = sf::Vector2f(rawMousePos.x / (float)_window->getSize().x, rawMousePos.y / (float)_window->getSize().y);
+    mousePos.x = 1.0 - mousePos.x * 2.0f;
+    mousePos.y = 1.0 - mousePos.y * 2.0f;
+    printf("%f %f\n", mousePos.x, mousePos.y);
+
+    if(fabs(mousePos.x) >= 0.3f) {
+        camera->rotate(glm::radians(mousePos.x), glm::vec3(0, 1, 0));
+    }
+    if (fabs(mousePos.y) >= 0.3f) {
+        camera->rotate(glm::radians(mousePos.y), glm::vec3(1, 0, 0));
+    }
 }
 
 void DefaultScene::_render() {
     AbstractGame::_render();
     _updateHud();
+
+    //camera->rotate(glm::radians(2.0f), glm::vec3(0, 1, 0));
+    updateCamera();
 }
 
 void DefaultScene::_updateHud() {

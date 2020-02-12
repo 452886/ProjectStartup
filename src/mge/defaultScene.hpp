@@ -2,6 +2,7 @@
 #define DEFAULTSCENE_HPP
 
 #include "mge/core/AbstractGame.hpp"
+#include <mge\core\Camera.hpp>
 
 class DebugHud;
 
@@ -28,11 +29,13 @@ class DefaultScene: public AbstractGame
 
 	private:
 		DebugHud* _hud;                   //hud display
-
+		float fov = 70.0f;
+		Camera* camera;
         void _updateHud();
+		void updateCamera();
 
 		DefaultScene(const DefaultScene&);
 		DefaultScene& operator=(const DefaultScene&);
 };
 
-#endif // MGEDEMO_HPP
+#endif // DEFAULTSCENE_HPP
