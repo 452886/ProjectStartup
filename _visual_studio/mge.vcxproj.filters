@@ -79,6 +79,9 @@
     <ClInclude Include="..\src\mge\core\Light.hpp">
       <Filter>MGE Source files\mge\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\defaultScene.hpp">
+      <Filter>MGE Source files\mge</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -134,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\core\Light.cpp">
       <Filter>MGE Source files\mge\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\defaultScene.cpp">
+      <Filter>MGE Source files\mge</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
