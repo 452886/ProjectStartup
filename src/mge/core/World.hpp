@@ -21,12 +21,17 @@ class World : public GameObject
         Light* getLightAt (int pIndex);
         int getLightCount();
 
+
+		float ElapsedTime();
+
 	private:
 	    Camera* _mainCamera;
 	    std::vector<Light*> _lights;
 
         World(const World&);
         World& operator=(const World&);
+		
+		sf::Clock _clock;
 };
 
 

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "glm.hpp"
+#include <SFML/System/Clock.hpp>
 
 class AbstractCollider;
 class AbstractBehaviour;
@@ -13,6 +14,7 @@ class Mesh;
 /**
  * A GameObject wraps all data required to display an object, but knows nothing about OpenGL or rendering.
  */
+
 class GameObject
 {
 	public:

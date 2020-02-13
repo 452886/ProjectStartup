@@ -58,8 +58,6 @@ class AbstractGame
     private:
         AbstractGame(const AbstractGame&);
         AbstractGame& operator=(const AbstractGame&);
-
-
 };
 
 #endif // ABSTRACTGAME_HPP

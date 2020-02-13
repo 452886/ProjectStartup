@@ -17,7 +17,6 @@ Camera* World::getMainCamera () {
     return _mainCamera;
 }
 
-
 void World::registerLight (Light* pLight) {
     std::cout << "Registering light " << pLight->getName() << std::endl;
     _lights.push_back(pLight);
@@ -35,4 +34,9 @@ Light* World::getLightAt (int pIndex) {
 
 int World::getLightCount() {
     return _lights.size();
+}
+
+ float World::ElapsedTime()
+{
+	 return _clock.getElapsedTime().asSeconds();
 }

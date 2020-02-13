@@ -15,7 +15,11 @@ void KeysBehaviour::update( float pStep )
 	float moveSpeed = 0.0f; //default if no keys
 	float turnSpeed = 0.0f;
 
-	moveSpeed = _moveSpeed;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+		moveSpeed = _moveSpeed * 20;
+	else
+		moveSpeed = _moveSpeed;
+
 
 	glm::vec3 directionVector = glm::vec3(0, 0, 0);
 

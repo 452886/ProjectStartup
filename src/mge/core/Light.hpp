@@ -11,11 +11,16 @@
 class Light : public GameObject
 {
 	public:
-		Light(const std::string& aName = nullptr, const glm::vec3& aPosition = glm::vec3( 2.0f, 10.0f, 5.0f ) );
+		Light(const std::string& aName = nullptr, const glm::vec3& aPosition = glm::vec3( 2.0f, 10.0f, 5.0f ), const glm::vec3& aColor = glm::vec3(1,1,1));
 		virtual ~Light();
 
         //override set parent to register/deregister light...
         virtual void _setWorldRecursively (World* pWorld) override;
+		glm::vec3 getColor();
+
+	private:
+		glm::vec3 lightColor;
+		
 };
 
 #endif // LIGHT_HPP
