@@ -31,8 +31,15 @@ class DefaultScene: public AbstractGame
 		DebugHud* _hud;                   //hud display
 		float fov = 70.0f;
 		Camera* camera;
+
+		glm::vec3 cameraPos;
+		glm::vec3 cameraFront;
+		glm::vec3 cameraUp;
+		const float camSpeed = 0.05f;
+
         void _updateHud();
 		void updateCamera();
+		void keyControls();
 
 		DefaultScene(const DefaultScene&);
 		DefaultScene& operator=(const DefaultScene&);
