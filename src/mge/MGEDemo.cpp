@@ -55,7 +55,7 @@ void MGEDemo::_initializeScene()
 
     //create some materials to display the cube, the plane and the light
     AbstractMaterial* lightMaterial = new ColorMaterial (glm::vec3(1,1,0));
-	AbstractMaterial* runicStoneMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "chair_diffuse.png"),Texture::load(config::MGE_TEXTURE_PATH + "chair_specular.png"));
+	AbstractMaterial* runicStoneMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "testbox.png"),Texture::load(config::MGE_TEXTURE_PATH + "testboxspecular.png"));
 	AbstractMaterial* landMaterial = new TextureMaterial (Texture::load (config::MGE_TEXTURE_PATH+"land.jpg"));
 	AbstractMaterial* redMaterial = new ColorMaterial(glm::vec3(1, 0, 0));
 	AbstractMaterial* blueMaterial = new ColorMaterial(glm::vec3(0, 0, 1));
@@ -86,23 +86,23 @@ void MGEDemo::_initializeScene()
 	GameObject* cube = new GameObject("cube", glm::vec3(1.5f, 4.5, 4));
 	cube->scale(glm::vec3(0.3f, 0.3f, 0.3f));
 	cube->setMesh(cubeMeshF);
-	cube->setMaterial(blueMaterial);
+	cube->setMaterial(runicStoneMaterial);
 	_world->add(cube);
 
 	GameObject* cube2 = new GameObject("cube2", glm::vec3(1.5f, 4.5, 5));
 	cube2->scale(glm::vec3(0.3f, 0.3f, 0.3f));
 	cube2->setMesh(cubeMeshF);
-	cube2->setMaterial(blueMaterial);
+	cube2->setMaterial(runicStoneMaterial);
 	_world->add(cube2);
 
-    Light* light = new Light("light", glm::vec3(0,4,0),glm::vec3(1,1,1));
+    Light* light = new Light("light",POINT, glm::vec3(0,4,0),glm::vec3(1,1,1));
     light->scale(glm::vec3(0.1f, 0.1f, 0.1f));
     light->setMesh(cubeMeshF);
     light->setMaterial(lightMaterial);
     light->setBehaviour(new KeysBehaviour(25));
     _world->add(light);
 
-	Light* light2 = new Light("light", glm::vec3(-4, 4, 0), glm::vec3(1, 1, 1));
+	Light* light2 = new Light("light",POINT, glm::vec3(-4, 4, 0), glm::vec3(1, 1, 1));
 	light2->scale(glm::vec3(0.1f, 0.1f, 0.1f));
 	light2->setMesh(cubeMeshF);
 	light2->setMaterial(lightMaterial);

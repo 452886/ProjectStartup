@@ -36,6 +36,8 @@ class TextureMaterial : public AbstractMaterial
         static GLint _aNormal;
         static GLint _aUV ;
 
+		bool _hasSpecularTexture;
+
         Texture* _diffuseTexture;
 		Texture* _specularTexture;
 

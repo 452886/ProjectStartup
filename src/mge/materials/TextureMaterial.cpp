@@ -21,14 +21,14 @@ GLint TextureMaterial::_aVertex = 0;
 GLint TextureMaterial::_aNormal = 0;
 GLint TextureMaterial::_aUV = 0;
 
-bool hasSpecularTexture = true;
-
-TextureMaterial::TextureMaterial(Texture * pDiffuseTexture, Texture* pSpecularTexture):_diffuseTexture(pDiffuseTexture) {
-	_specularTexture = pSpecularTexture;
+TextureMaterial::TextureMaterial(Texture * pDiffuseTexture, Texture* pSpecularTexture):_diffuseTexture(pDiffuseTexture), _specularTexture(pSpecularTexture) {
 
 	if (_specularTexture == nullptr) {
-		hasSpecularTexture = false;
-		std::cout << "has no specular" << std::endl;
+		_hasSpecularTexture = false;
+		//std::cout << "has no specular" << std::endl;
+	}
+	else {
+		//std::cout << "has specular" << std::endl;
 	}
 
     _lazyInitializeShader();
@@ -45,8 +45,8 @@ void TextureMaterial::_lazyInitializeShader() {
 
         //cache all the uniform and attribute indexes
         _uMVPMatrix = _shader->getUniformLocation("mvpMatrix");
-        _uDiffuseTexture = _shader->getUniformLocation("diffuseTexture");
-		_uSpecularTexture = _shader->getUniformLocation("specularTexture");
+        _uDiffuseTexture = _shader->getUniformLocation("material.diffuse");
+		_uSpecularTexture = _shader->getUniformLocation("material.specular");
 
         _aVertex = _shader->getAttribLocation("vertex");
         _aNormal = _shader->getAttribLocation("normal");
@@ -80,29 +80,27 @@ void TextureMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModel
 	glBindTexture(GL_TEXTURE_2D, _diffuseTexture->getId());
     //tell the shader the texture slot for the diffuse texture is slot 0
     glUniform1i (_uDiffuseTexture, 0);
-	
 
 
-	if (hasSpecularTexture) {
+	if (_hasSpecularTexture) {
+		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, _specularTexture->getId());
-		glUniform1i(_uSpecularTexture, 2);
+		glUniform1i(_uSpecularTexture, 1);
 	}
 
-	glUniform3fv(_shader->getUniformLocation("light.position"), 1, glm::value_ptr(pWorld->getLightAt(0)->getLocalPosition()));
+	glUniform3fv(_shader->getUniformLocation("pointLight.position"), 1, glm::value_ptr(pWorld->getLightAt(0)->getLocalPosition()));
 	glUniform3fv(_shader->getUniformLocation("viewPos"), 1, glm::value_ptr(pWorld->getMainCamera()->getLocalPosition()));
 
 	glm::vec3 lightColor = glm::vec3(1, 1, 1);
 
 	glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f);
 	glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f);
-	glUniform3f(_shader->getUniformLocation("light.ambient"), ambientColor.r, ambientColor.g, ambientColor.b);
-	glUniform3f(_shader->getUniformLocation("light.diffuse"), diffuseColor.r, diffuseColor.g, diffuseColor.b);
-	glUniform3f(_shader->getUniformLocation("light.specular"), 1.0f, 1.0f, 1.0f);
-
-	glUniform3f(_shader->getUniformLocation("material.ambient"), 1.0f, 0.5f, 0.31f);
-	glUniform3f(_shader->getUniformLocation("material.diffuse"), 1.0f, 0.5f, 0.31f);
-	glUniform3f(_shader->getUniformLocation("material.specular"), 0.5f, 0.5f, 0.5f);
+	glUniform3f(_shader->getUniformLocation("pointLight.ambient"), ambientColor.r, ambientColor.g, ambientColor.b);
+	glUniform3f(_shader->getUniformLocation("pointLight.diffuse"), diffuseColor.r, diffuseColor.g, diffuseColor.b);
+	glUniform3f(_shader->getUniformLocation("pointLight.specular"), 1.0f, 1.0f, 1.0f);
+	
 	glUniform1f(_shader->getUniformLocation("material.shininess"), 32.0f);
+
 	float attenuation = 0.0005f;
 
 	glUniform1f(_shader->getUniformLocation("attenuation"), attenuation);
@@ -111,6 +109,8 @@ void TextureMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModel
 	glUniformMatrix4fv(_shader->getUniformLocation("projectionMatrix"), 1, GL_FALSE, glm::value_ptr(pProjectionMatrix));
 	glUniformMatrix4fv(_shader->getUniformLocation("viewMatrix"), 1, GL_FALSE, glm::value_ptr(pViewMatrix));
 	glUniformMatrix4fv(_shader->getUniformLocation("modelMatrix"), 1, GL_FALSE, glm::value_ptr(pModelMatrix));
+
+	
 
     //now inform mesh of where to stream its data
     pMesh->streamToOpenGL(_aVertex, _aNormal, _aUV);
