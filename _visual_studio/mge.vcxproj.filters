@@ -20,6 +20,9 @@
     <Filter Include="MGE Source files\mge\util">
       <UniqueIdentifier>{7d824c34-4bb6-43a4-a48a-0d68b7aad6e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\core\Lights">
+      <UniqueIdentifier>{ba9ade61-4364-485c-afbc-de930ad5d679}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -79,6 +82,18 @@
     <ClInclude Include="..\src\mge\core\Light.hpp">
       <Filter>MGE Source files\mge\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\core\SpotLight.hpp">
+      <Filter>MGE Source files\mge\core\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\core\DirLight.hpp">
+      <Filter>MGE Source files\mge\core\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\core\PointLight.hpp">
+      <Filter>MGE Source files\mge\core\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\ArrowKeysBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -134,6 +149,18 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\core\Light.cpp">
       <Filter>MGE Source files\mge\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\core\SpotLight.cpp">
+      <Filter>MGE Source files\mge\core\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\core\DirLight.cpp">
+      <Filter>MGE Source files\mge\core\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\core\PointLight.cpp">
+      <Filter>MGE Source files\mge\core\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\ArrowKeysBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

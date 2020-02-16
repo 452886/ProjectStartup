@@ -18,6 +18,7 @@
 
 #include "mge/behaviours/RotatingBehaviour.hpp"
 #include "mge/behaviours/KeysBehaviour.hpp"
+#include "mge/behaviours/ArrowKeysBehaviour.hpp"
 
 #include "mge/util/DebugHud.hpp"
 
@@ -56,7 +57,7 @@ void MGEDemo::_initializeScene()
     //create some materials to display the cube, the plane and the light
     AbstractMaterial* lightMaterial = new ColorMaterial (glm::vec3(1,1,0));
 	AbstractMaterial* runicStoneMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "testbox.png"),Texture::load(config::MGE_TEXTURE_PATH + "testboxspecular.png"));
-	AbstractMaterial* landMaterial = new TextureMaterial (Texture::load (config::MGE_TEXTURE_PATH+"land.jpg"));
+	AbstractMaterial* landMaterial = new TextureMaterial (Texture::load (config::MGE_TEXTURE_PATH+"land.jpg"), Texture::load(config::MGE_TEXTURE_PATH + "testboxspecular.png"));
 	AbstractMaterial* redMaterial = new ColorMaterial(glm::vec3(1, 0, 0));
 	AbstractMaterial* blueMaterial = new ColorMaterial(glm::vec3(0, 0, 1));
 
@@ -95,18 +96,37 @@ void MGEDemo::_initializeScene()
 	cube2->setMaterial(runicStoneMaterial);
 	_world->add(cube2);
 
-    Light* light = new Light("light",POINT, glm::vec3(0,4,0),glm::vec3(1,1,1));
+
+    LightProperties properties;
+    properties.ambient = glm::vec3(1, 1, 1);
+
+    Light* light = new Light("point first light", glm::vec3(0, 4.5f, 0),LightType::POINT ,properties);
     light->scale(glm::vec3(0.1f, 0.1f, 0.1f));
     light->setMesh(cubeMeshF);
     light->setMaterial(lightMaterial);
     light->setBehaviour(new KeysBehaviour(25));
     _world->add(light);
 
-	Light* light2 = new Light("light",POINT, glm::vec3(-4, 4, 0), glm::vec3(1, 1, 1));
-	light2->scale(glm::vec3(0.1f, 0.1f, 0.1f));
-	light2->setMesh(cubeMeshF);
-	light2->setMaterial(lightMaterial);
-	_world->add(light2);
+    //LightProperties propertiesTwo;
+    //propertiesTwo.ambient = glm::vec3(0.3f, 0.3f, 0.3f);
+
+    //Light* lightTwo = new Light("point second light", glm::vec3(4, 3, 0), LightType::POINT, propertiesTwo);
+    //lightTwo->scale(glm::vec3(0.1f, 0.1f, 0.1f));
+    //lightTwo->setMesh(cubeMeshF);
+    //lightTwo->setMaterial(lightMaterial);
+    //_world->add(lightTwo);
+
+    LightProperties propertiesThree;
+    propertiesThree.direction = glm::vec3(0, -1, 0);
+    propertiesThree.cutOff = glm::cos(glm::radians(12.5f));
+    propertiesThree.outerCutOff = glm::cos(glm::radians(15.0f));
+
+    Light* lightThree = new Light("Spot second light", glm::vec3(4, 3, 0), LightType::SPOT, propertiesThree);
+    lightThree->scale(glm::vec3(0.1f, 0.1f, 0.1f));
+    lightThree->setMesh(cubeMeshF);
+    lightThree->setMaterial(lightMaterial);
+    lightThree->setBehaviour(new ArrowKeysBehaviour(50));
+    _world->add(lightThree);
 
 }
 

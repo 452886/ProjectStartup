@@ -2,6 +2,7 @@
 #define WORLD_HPP
 
 #include "mge/core/GameObject.hpp"
+#include "mge/core/Light.hpp"
 
 class Camera;
 class Light;
@@ -22,6 +23,11 @@ class World : public GameObject
         int getLightCount();
 
 
+		// THIS IS ONLY USED FOR GIVING THE FRAGMENT SHADER THE RIGHT ARRAY INDEX AMMOUNT
+		// YOU CAN'T USE THESE TO THE THE INDEX OF THAT SPECIFIC LIGHT
+		// TO DO 
+		int getLightTypeCount(LightType type);
+
 		float ElapsedTime();
 
 	private:
@@ -32,6 +38,12 @@ class World : public GameObject
         World& operator=(const World&);
 		
 		sf::Clock _clock;
+
+		int _pointLightCount = 0;
+		int _spotLightCount = 0;
+		int _dirLightCount = 0;
+		int _ambientLightCount = 0;
+
 };
 
 

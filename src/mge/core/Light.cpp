@@ -1,12 +1,13 @@
 #include "mge/core/Light.hpp"
 #include "mge/core/World.hpp"
 
-Light::Light(const std::string& pName,const LType aLightType, const glm::vec3& pPosition,const glm::vec3& aColor):GameObject(pName, pPosition), _lType(aLightType),_lightColor(aColor)
+Light::Light(const std::string& pName, const glm::vec3& aPosition, LightType aLightType, LightProperties aLightProperties) :GameObject(pName, aPosition),_type(aLightType), properties(aLightProperties)
 {
 
 }
 
 Light::~Light() {
+
 }
 
 //Override setWorldRecursively to make sure we are registered
@@ -21,12 +22,31 @@ void Light::_setWorldRecursively (World* pWorld) {
     //check whether we need to register or unregister
     if (previousWorld != nullptr) previousWorld->unregisterLight(this);
 	if (newWorld != nullptr) newWorld->registerLight(this);
-
 }
 
-glm::vec3 Light::getColor()
+LightType Light::Type()
 {
-	return _lightColor;
+    return _type;
 }
 
 
+LightProperties::LightProperties(glm::vec3& pAmbient, glm::vec3& pDiffuse, glm::vec3& pSpecular, float pConstant, float pLinear, float pQuadratic, glm::vec3& pDirection, float pCutOff, float pOuterCutOff)
+{
+    ambient = pAmbient;
+    diffuse = pDiffuse;
+    specular = pSpecular;
+    
+    constant = pConstant;
+    linear = pLinear;
+    quadratic = pQuadratic;
+
+    direction = pDirection;
+
+    cutOff = pCutOff;
+    outerCutOff = pOuterCutOff;
+}
+
+LightProperties::~LightProperties()
+{
+
+}
