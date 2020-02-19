@@ -2,6 +2,7 @@
 
 #include "mge/core/AbstractGame.hpp"
 #include "mge/MGEDemo.hpp"
+#include "mge/Scenes/LightingExample.hpp"
 
 /**
  * Main entry point for the Micro Engine.
@@ -22,7 +23,7 @@ int main()
 {
     std::cout << "Starting Game" << std::endl;
 
-    AbstractGame* game = new MGEDemo();
+    AbstractGame* game = new LightingExample();
     game->initialize();
     game->run();
 

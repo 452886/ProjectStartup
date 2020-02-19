@@ -13,31 +13,44 @@ class Texture;
  */
 class TextureMaterial : public AbstractMaterial
 {
-    public:
-        TextureMaterial (Texture* pDiffuseTexture);
-        virtual ~TextureMaterial ();
+public:
+    TextureMaterial(Texture* pDiffuseTexture, Texture* pSpecularTexture, const float pShininess = 32.0f);
+    virtual ~TextureMaterial();
 
-        virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) override;
+    virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) override;
 
-        void setDiffuseTexture (Texture* pDiffuseTexture);
+    void setDiffuseTexture(Texture* pDiffuseTexture);
+    void setSpecularTexture(Texture* pSpecularTexture);
 
-    protected:
-    private:
-        static ShaderProgram* _shader;
-        static void _lazyInitializeShader();
+protected:
+private:
+    static ShaderProgram* _shader;
+    static void _lazyInitializeShader();
 
-        //in this example we cache all identifiers for uniforms & attributes
-        static GLint _uMVPMatrix;
-        static GLint _uDiffuseTexture;
+    //in this example we cache all identifiers for uniforms & attributes
+    static GLint _uMVPMatrix;
+    static GLint _uDiffuseTexture;
+    static GLint _uSpecularTexture;
 
-        static GLint _aVertex ;
-        static GLint _aNormal;
-        static GLint _aUV ;
+    static GLint _aVertex;
+    static GLint _aNormal;
+    static GLint _aUV;
 
-        Texture* _diffuseTexture;
+    bool _hasSpecularTexture;
 
-        TextureMaterial(const TextureMaterial&);
-        TextureMaterial& operator=(const TextureMaterial&);
+    Texture* _diffuseTexture;
+    Texture* _specularTexture;
+
+    const float _shininess;
+
+    TextureMaterial(const TextureMaterial&);
+    TextureMaterial& operator=(const TextureMaterial&);
+
+    void addPointLight(int lightIndex, World* pWorld, int typeIndex);
+    void addSpotLight(int lightIndex, World* pWorld, int typeIndex);
+    void addDirLight(int lightIndex, World* pWorld, int typeIndex);
+    void addAmbientLight(int lightIndex, World* pWorld, int typeIndex);
+
 
 };
 
