@@ -1,4 +1,3 @@
-#pragma once
 #ifndef LIGHTINGEXAMPLE_HPP
 #define LIGHTINGEXAMPLE_HPP
 

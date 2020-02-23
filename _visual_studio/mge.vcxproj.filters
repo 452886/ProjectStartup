@@ -85,6 +85,9 @@
     <ClInclude Include="..\src\mge\Scenes\LightingExample.hpp">
       <Filter>MGE Source files\mge\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\Scenes\UnityImportScene.hpp">
+      <Filter>MGE Source files\mge\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -142,6 +145,9 @@
       <Filter>MGE Source files\mge\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\Scenes\LightingExample.cpp">
+      <Filter>MGE Source files\mge\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\Scenes\UnityImportScene.cpp">
       <Filter>MGE Source files\mge\Scenes</Filter>
     </ClCompile>
   </ItemGroup>

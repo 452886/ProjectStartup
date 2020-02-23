@@ -89,7 +89,6 @@ void MGEDemo::_initializeScene()
     light->scale(glm::vec3(0.1f, 0.1f, 0.1f));
     light->setMesh(cubeMeshF);
     light->setMaterial(lightMaterial);
-    light->setBehaviour(new KeysBehaviour(25));
     _world->add(light);
 
 }

@@ -1,0 +1,7 @@
+<root>
+  <GameObject name="Main Camera" position="(0.0, 1.0, -10.0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1.0, 1.0, 1.0)" />
+  <GameObject name="actualgood" position="(-0.4, -3.6, -19.9)" rotation="(0.0, -0.7, 0.0, 0.7)" scale="(0.1, 0.1, 0.1)">
+    <GameObject name="Chair_Prop_Chair" position="(0.0, 0.0, 0.0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1.0, 1.0, 1.0)" mesh="Chair_Prop_Chair.obj" />
+  </GameObject>
+  <GameObject name="Directional Light" position="(0.0, 3.0, 0.0)" rotation="(0.4, 0.2, -0.1, 0.9)" scale="(1.0, 1.0, 1.0)" />
+</root>
