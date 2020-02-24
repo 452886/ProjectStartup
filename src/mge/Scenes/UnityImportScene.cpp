@@ -26,6 +26,8 @@
 #include "mge/config.hpp"
 #include "mge/Scenes/UnityImportScene.hpp"
 
+#include "mge/materials/MaterialLib.hpp"
+
 
 //construct the game class into _window, _renderer and hud (other parts are initialized by build)
 UnityImportScene::UnityImportScene() :AbstractGame(), _hud(0)
@@ -51,8 +53,9 @@ glm::vec3 offSet;
 void UnityImportScene::_initializeScene()
 {
     Mesh* cubeMeshF = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
+	
 
-    AbstractMaterial* box = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "testbox.png"), Texture::load(config::MGE_TEXTURE_PATH + "testboxspecular.png"));
+	TextureMaterial* box = MaterialLib::boxMat;
 
     cube = new GameObject("cube", glm::vec3(0, 0, 0));
     cube->scale(glm::vec3(5, 5, 5));
@@ -64,8 +67,8 @@ void UnityImportScene::_initializeScene()
     //SCENE SETUP
 
     //add camera first (it will be updated last)
-    camera = new Camera("camera", glm::vec3(0, 3, 4));
-    camera->rotate(glm::radians(-20.0f), glm::vec3(1, 0, 0));
+    camera = new Camera("camera", glm::vec3(0, 0, 0));
+    //camera->rotate(glm::radians(-20.0f), glm::vec3(1, 0, 0));
     _world->add(camera);
     _world->setMainCamera(camera);
     
@@ -75,7 +78,7 @@ void UnityImportScene::_initializeScene()
     //rapidxml::file<> xmlFile("mge/scene_export_default.xml");
     //rapidxml::file<> xmlFile("mge/scene_export_flipped.xml");
     //rapidxml::file<> xmlFile("mge/scene_export_rotated_wrong.xml");
-    rapidxml::file<> xmlFile("mge/levels/tests_export.xml");
+    rapidxml::file<> xmlFile("mge/levels/withmaterials_export.xml");
     rapidxml::xml_document<> doc;
     //0 means default flags, parse the cr.p out of it
     doc.parse<0>(xmlFile.data());
@@ -84,9 +87,7 @@ void UnityImportScene::_initializeScene()
     rapidxml::xml_node<>* root_node = doc.first_node("root");
     _processChildren(root_node, _world);
 
-
     AbstractMaterial* boxMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "testbox.png"), Texture::load(config::MGE_TEXTURE_PATH + "testboxspecular.png"));
-
 
     LightProperties properties;
     properties.ambient = glm::vec3(0.5f, 0.5f, 0.5f);
@@ -185,7 +186,11 @@ GameObject* UnityImportScene::_convertGameObject(rapidxml::xml_node<>* pXmlNode,
             Mesh* mesh = Mesh::load(config::MGE_MODEL_PATH + attrib->value());
             gameObject->setMesh(mesh);
         }
+		else if (attribName == "material") {
+			// Material libary
 
+
+		}
     }
 
     return gameObject;

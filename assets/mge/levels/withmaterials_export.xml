@@ -1,0 +1,3 @@
+<root>
+  <GameObject name="Chair_Prop_Chair" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="box" />
+</root>

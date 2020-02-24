@@ -88,6 +88,9 @@
     <ClInclude Include="..\src\mge\Scenes\UnityImportScene.hpp">
       <Filter>MGE Source files\mge\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\materials\MaterialLib.hpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -149,6 +152,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\Scenes\UnityImportScene.cpp">
       <Filter>MGE Source files\mge\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\materials\MaterialLib.cpp">
+      <Filter>MGE Source files\mge\materials</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
