@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "glm.hpp"
 
@@ -23,6 +24,8 @@
 
 #include "mge/config.hpp"
 #include "mge/defaultScene.hpp"
+
+#include "NodeGraph.hpp"
 
 //construct the game class into _window, _renderer and hud (other parts are initialized by build)
 DefaultScene::DefaultScene():AbstractGame (),_hud(0)
@@ -92,6 +95,8 @@ void DefaultScene::_initializeScene()
     light->setBehaviour(new KeysBehaviour(25));
     _world->add(light);
 
+
+    NodeGraph nodeGraph = NodeGraph(nodes("file.txt"));
 }
 
 void DefaultScene::_render() {
@@ -110,4 +115,9 @@ void DefaultScene::_updateHud() {
 DefaultScene::~DefaultScene()
 {
 	//dtor
+}
+
+static std::vector<Node> nodes(std::string file) {
+    std::vector<Node> nodes;
+    return nodes;
 }

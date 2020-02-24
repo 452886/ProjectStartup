@@ -33,6 +33,7 @@ class DefaultScene: public AbstractGame
 
 		DefaultScene(const DefaultScene&);
 		DefaultScene& operator=(const DefaultScene&);
+
 };
 
 #endif // MGEDEMO_HPP
