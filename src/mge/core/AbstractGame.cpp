@@ -3,6 +3,7 @@
 #include "AbstractGame.hpp"
 #include "mge/core/Renderer.hpp"
 #include "mge/core/World.hpp"
+#include "mge/config.hpp"
 
 AbstractGame::AbstractGame():_window(NULL),_renderer(NULL),_world(NULL), _fps(0)
 {
@@ -172,5 +173,76 @@ void AbstractGame::_processEvents()
 	}
 }
 
+void AbstractGame::_processChildren(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
+{
+	for (rapidxml::xml_node<>* child = pXmlNode->first_node(); child != NULL; child = child->next_sibling())
+	{
+		_processSingle(child, pGameObjectNode);
+	}
+}
 
+void AbstractGame::_processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
+{
+	GameObject* currentNode = pGameObjectNode;
+	std::cout << "Processing " << pXmlNode->name() << std::endl;
+
+	if (strcmp(pXmlNode->name(), "GameObject") == 0) {
+		GameObject* newNode = _convertGameObject(pXmlNode, currentNode);
+		currentNode->add(newNode);
+		std::cout << newNode->getName() << " added to " << currentNode->getName() << std::endl;
+		currentNode = newNode;
+	}
+
+	_processChildren(pXmlNode, currentNode);
+}
+
+GameObject* AbstractGame::_convertGameObject(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
+{
+	GameObject* gameObject = new GameObject("temp");
+
+	for (rapidxml::xml_attribute<>* attrib = pXmlNode->first_attribute();
+		attrib != NULL;
+		attrib = attrib->next_attribute()
+		)
+	{
+		std::cout << attrib->name() << "=" << attrib->value() << std::endl;
+		std::string attribName = attrib->name();
+
+		//process code...
+		if (attribName == "name") {
+
+			gameObject->setName(attrib->value());
+
+		}
+		else if (attribName == "position") {
+
+			glm::vec3 position;
+			sscanf(attrib->value(), "(%f, %f, %f)", &position.x, &position.y, &position.z);
+			gameObject->setLocalPosition(position);
+
+		}
+		else if (attribName == "rotation") {
+
+			glm::quat rotation;
+			sscanf(attrib->value(), "(%f, %f, %f, %f)", &rotation.x, &rotation.y, &rotation.z, &rotation.w);
+			gameObject->rotate(glm::angle(rotation), glm::axis(rotation));
+		}
+
+		else if (attribName == "scale") {
+			glm::vec3 scale;
+			sscanf(attrib->value(), "(%f, %f, %f)", &scale.x, &scale.y, &scale.z);
+			gameObject->scale(scale);
+		}
+		else if (attribName == "mesh") {
+			Mesh* mesh = Mesh::load(config::MGE_MODEL_PATH + attrib->value());
+			gameObject->setMesh(mesh);
+		}
+		else if (attribName == "material") {
+			// Material libary
+			gameObject->setMaterial(_world->matLib->getMaterial(attrib->value()));
+		}
+	}
+
+	return gameObject;
+}
 

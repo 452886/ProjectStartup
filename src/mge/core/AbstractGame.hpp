@@ -5,6 +5,12 @@
 #include <GL/glew.h>
 #include <string>
 
+#include <rapidxml-1.13/rapidxml.hpp>
+#include "rapidxml-1.13/rapidxml_utils.hpp"
+
+#include "mge/core/GameObject.hpp"
+#include "mge/core/Mesh.hpp"
+
 class World;
 class Renderer;
 
@@ -54,6 +60,13 @@ class AbstractGame
 		Renderer* _renderer;        //the renderer class to render the world
 		World* _world;              //the root game object that represents our scene
 		float _fps;                 //stores the real fps
+
+
+		// Load gameobjects from unity export
+		void _processChildren(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
+		void _processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
+		GameObject* _convertGameObject(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
+
 
     private:
         AbstractGame(const AbstractGame&);

@@ -3,6 +3,7 @@
 
 #include "mge/core/GameObject.hpp"
 #include "mge/core/Light.hpp"
+#include "mge/materials/MaterialLib.hpp"
 
 class Camera;
 class Light;
@@ -22,6 +23,7 @@ public:
 	Light* getLightAt(int pIndex);
 	int getLightCount();
 
+	MaterialLib* matLib = new MaterialLib();
 
 	// THIS IS ONLY USED FOR GIVING THE FRAGMENT SHADER THE RIGHT ARRAY INDEX AMMOUNT
 	// YOU CAN'T USE THESE TO THE THE INDEX OF THAT SPECIFIC LIGHT

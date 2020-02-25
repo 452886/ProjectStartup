@@ -53,22 +53,18 @@ glm::vec3 offSet;
 void UnityImportScene::_initializeScene()
 {
     Mesh* cubeMeshF = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
-	
-
-	TextureMaterial* box = MaterialLib::boxMat;
 
     cube = new GameObject("cube", glm::vec3(0, 0, 0));
     cube->scale(glm::vec3(5, 5, 5));
     cube->setMesh(cubeMeshF);
-    cube->setMaterial(box);
-    cube->setBehaviour(new KeysBehaviour(40));
+    cube->setBehaviour(new KeysBehaviour(1));
     _world->add(cube);
     
     //SCENE SETUP
 
     //add camera first (it will be updated last)
     camera = new Camera("camera", glm::vec3(0, 0, 0));
-    //camera->rotate(glm::radians(-20.0f), glm::vec3(1, 0, 0));
+    camera->rotate(glm::radians(-20.0f), glm::vec3(1, 0, 0));
     _world->add(camera);
     _world->setMainCamera(camera);
     
@@ -85,9 +81,8 @@ void UnityImportScene::_initializeScene()
 
     // Find our root node and send it off for further processing
     rapidxml::xml_node<>* root_node = doc.first_node("root");
-    _processChildren(root_node, _world);
 
-    AbstractMaterial* boxMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "testbox.png"), Texture::load(config::MGE_TEXTURE_PATH + "testboxspecular.png"));
+    _processChildren(root_node, _world);
 
     LightProperties properties;
     properties.ambient = glm::vec3(0.5f, 0.5f, 0.5f);
@@ -99,13 +94,7 @@ void UnityImportScene::_initializeScene()
     _world->add(light);
 }
 
-
-
 void UnityImportScene::_render() {
-
-    camera->setLocalPosition(cube->getLocalPosition() + offSet);
-
-
     AbstractGame::_render();
     _updateHud();
 }
@@ -116,84 +105,6 @@ void UnityImportScene::_updateHud() {
 
     _hud->setDebugInfo(debugInfo);
     _hud->draw();
-}
-
-void UnityImportScene::_processChildren(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
-{
-    for (rapidxml::xml_node<>* child = pXmlNode->first_node(); child != NULL; child = child->next_sibling())
-    {
-        _processSingle(child, pGameObjectNode);
-    }
-}
-
-void UnityImportScene::_processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
-{
-    GameObject* currentNode = pGameObjectNode;
-    std::cout << "Processing " << pXmlNode->name() << std::endl;
-
-    if (strcmp(pXmlNode->name(), "GameObject") == 0) {
-        GameObject* newNode = _convertGameObject(pXmlNode, currentNode);
-        currentNode->add(newNode);
-        std::cout << newNode->getName() << " added to " << currentNode->getName() << std::endl;
-        currentNode = newNode;
-    }
-
-    _processChildren(pXmlNode, currentNode);
-}
-
-GameObject* UnityImportScene::_convertGameObject(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
-{
-    GameObject* gameObject = new GameObject("temp");
-    //optimize this, use a materiallibrary!!
-    AbstractMaterial* boxMaterial = new TextureMaterial(Texture::load(config::MGE_TEXTURE_PATH + "chair_diffuse.png"), Texture::load(config::MGE_TEXTURE_PATH + "chair_specular.png"));
-    gameObject->setMaterial(boxMaterial);
-    gameObject->setBehaviour(new RotatingBehaviour());
-
-    for (rapidxml::xml_attribute<>* attrib = pXmlNode->first_attribute();
-        attrib != NULL;
-        attrib = attrib->next_attribute()
-        )
-    {
-        std::cout << attrib->name() << "=" << attrib->value() << std::endl;
-        std::string attribName = attrib->name();
-
-        //process code...
-        if (attribName == "name") {
-
-            gameObject->setName(attrib->value());
-
-        }
-        else if (attribName == "position") {
-
-            glm::vec3 position;
-            sscanf(attrib->value(), "(%f, %f, %f)", &position.x, &position.y, &position.z);
-            gameObject->setLocalPosition(position);
-
-        }
-        else if (attribName == "rotation") {
-
-            glm::quat rotation;
-            sscanf(attrib->value(), "(%f, %f, %f, %f)", &rotation.x, &rotation.y, &rotation.z, &rotation.w);
-            gameObject->rotate(glm::angle(rotation), glm::axis(rotation));
-        }
-
-        else if (attribName == "scale") {
-            glm::vec3 scale;
-            sscanf(attrib->value(), "(%f, %f, %f)", &scale.x, &scale.y, &scale.z);
-            gameObject->scale(scale);
-        }
-        else if (attribName == "mesh") {
-            Mesh* mesh = Mesh::load(config::MGE_MODEL_PATH + attrib->value());
-            gameObject->setMesh(mesh);
-        }
-		else if (attribName == "material") {
-			// Material libary
-
-
-		}
-    }
-
-    return gameObject;
 }
 
 

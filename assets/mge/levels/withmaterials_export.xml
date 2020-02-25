@@ -1,3 +1,9 @@
 <root>
-  <GameObject name="Chair_Prop_Chair" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="box" />
+  <GameObject name="Directional Light" position="(-0.0706228, 50, -0.005571306)" rotation="(0.4, 0.2, -0.1, 0.9)" scale="(1, 1, 1)" />
+  <GameObject name="Chair_Prop_Chair" position="(-0.57, -0.88, -8.4)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="bricks" />
+  <GameObject name="Chair_Prop_Chair" position="(-0.57, -0.88, -9.545)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="land" />
+  <GameObject name="Chair_Prop_Chair" position="(-0.57, -0.88, -10.78)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="box" />
+  <GameObject name="Chair_Prop_Chair" position="(0.5991317, -0.88, -10.79671)" rotation="(0.0, 1.0, 0.0, 0.0)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="box" />
+  <GameObject name="Chair_Prop_Chair" position="(0.5991317, -0.88, -9.651713)" rotation="(0.0, 1.0, 0.0, 0.0)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="runicfloor" />
+  <GameObject name="Chair_Prop_Chair" position="(0.5991317, -0.88, -8.416714)" rotation="(0.0, 1.0, 0.0, 0.0)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="chair" />
 </root>

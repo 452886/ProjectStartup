@@ -5,14 +5,32 @@
 #include "TextureMaterial.hpp"
 #include "mge/core/Texture.hpp"
 
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <istream>
 #include <map>
+#include <vector>
+#include <filesystem>
+
+namespace fs = std::experimental::filesystem;
+
+using namespace std;
 
 class MaterialLib
 {
+
 public:
-	static const TextureMaterial boxMat;
+	MaterialLib();
+	virtual ~MaterialLib();
+
+	AbstractMaterial* getMaterial(std::string);
 
 private:
+	std::map<std::string, AbstractMaterial*> materials;
+	void InitializeMaterials();
+
 };
 
 
