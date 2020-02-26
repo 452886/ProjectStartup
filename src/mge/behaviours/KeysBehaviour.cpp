@@ -42,6 +42,9 @@ void KeysBehaviour::update( float pStep )
 		directionVector = directionVector * (moveSpeed * pStep);
 
 		//translate the object in its own local space
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)) {
+			directionVector *= 0.2f;
+		}
 		_owner->translate(directionVector);
 	}
 

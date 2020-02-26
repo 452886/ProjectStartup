@@ -16,7 +16,5 @@ RotatingBehaviour::~RotatingBehaviour()
 void RotatingBehaviour::update(float pStep)
 {
     //rotates 45° per second
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
-		_owner->rotate(pStep * glm::radians(45.0f), glm::vec3(0, 1, 0.0f));
-	}
+	_owner->rotate(pStep * glm::radians(45.0f), glm::vec3(0, 1, 0.0f));
 }

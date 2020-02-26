@@ -5,6 +5,9 @@
 #include "mge/core/World.hpp"
 #include "mge/config.hpp"
 
+#include "mge/behaviours/RotatingBehaviour.hpp"
+#include "mge/behaviours/KeysBehaviour.hpp"
+
 AbstractGame::AbstractGame():_window(NULL),_renderer(NULL),_world(NULL), _fps(0)
 {
     //ctor
@@ -33,9 +36,10 @@ void AbstractGame::initialize() {
 
 void AbstractGame::_initializeWindow() {
 	std::cout << "Initializing window..." << std::endl;
-	_window = new sf::RenderWindow( sf::VideoMode(800,600), "My Game!", sf::Style::Default, sf::ContextSettings(24,8,0,3,3));
+	_window = new sf::RenderWindow( sf::VideoMode(1920,1080), "My Game!", sf::Style::Default, sf::ContextSettings(24,8,0,3,3));
 	//_window->setVerticalSyncEnabled(true);
     std::cout << "Window initialized." << std::endl << std::endl;
+
 }
 
 void AbstractGame::_printVersionInfo() {
@@ -239,10 +243,36 @@ GameObject* AbstractGame::_convertGameObject(rapidxml::xml_node<>* pXmlNode, Gam
 		}
 		else if (attribName == "material") {
 			// Material libary
+			std::cout << attrib->value() << std::endl;
 			gameObject->setMaterial(_world->matLib->getMaterial(attrib->value()));
+		}
+		else if (attribName == "behaviours") {
+			// Set the behaviour
+			std::string upperCase = attrib->value();
+			std::transform(upperCase.begin(), upperCase.end(), upperCase.begin(), ::toupper);
+
+			std::vector<std::string> behaviours = HelperMethods::split(upperCase, '-');
+
+			for (auto const& value : behaviours) {
+				AddBehaviourFromString(gameObject, value);
+			}
+
+
 		}
 	}
 
 	return gameObject;
+}
+
+void AbstractGame::AddBehaviourFromString(GameObject* gameObject, std::string n) {
+	// Imagine not being able to build a switch statment on strings
+
+	if (n == "ROTATECLOCKWISE")
+		gameObject->setBehaviour(new RotatingBehaviour());
+	else if (n == "ROTATECOUNTERCLOCKWISE")
+		gameObject->setBehaviour(new RotatingBehaviour());
+	else if (n == "KEYMOVEMEND")
+		gameObject->setBehaviour(new KeysBehaviour(5));
+
 }
 

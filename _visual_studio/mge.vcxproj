@@ -192,6 +192,7 @@
     <ClInclude Include="..\src\mge\Scenes\LightingExample.hpp" />
     <ClInclude Include="..\src\mge\Scenes\UnityImportScene.hpp" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
+    <ClInclude Include="..\src\mge\util\HelperMethods.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
@@ -215,6 +216,7 @@
     <ClCompile Include="..\src\mge\Scenes\LightingExample.cpp" />
     <ClCompile Include="..\src\mge\Scenes\UnityImportScene.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
+    <ClCompile Include="..\src\mge\util\HelperMethods.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

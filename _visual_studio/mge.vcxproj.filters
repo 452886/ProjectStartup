@@ -91,6 +91,9 @@
     <ClInclude Include="..\src\mge\materials\MaterialLib.hpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\util\HelperMethods.hpp">
+      <Filter>MGE Source files\mge\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -155,6 +158,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\materials\MaterialLib.cpp">
       <Filter>MGE Source files\mge\materials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\util\HelperMethods.cpp">
+      <Filter>MGE Source files\mge\util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

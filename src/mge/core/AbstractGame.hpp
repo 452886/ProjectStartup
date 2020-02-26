@@ -5,6 +5,9 @@
 #include <GL/glew.h>
 #include <string>
 
+#include "mge/util/HelperMethods.hpp"
+#include <algorithm>
+
 #include <rapidxml-1.13/rapidxml.hpp>
 #include "rapidxml-1.13/rapidxml_utils.hpp"
 
@@ -71,6 +74,8 @@ class AbstractGame
     private:
         AbstractGame(const AbstractGame&);
         AbstractGame& operator=(const AbstractGame&);
+
+		void AddBehaviourFromString(GameObject* gameObject, std::string n);
 
 
 };

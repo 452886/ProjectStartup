@@ -12,10 +12,15 @@ uniform	mat4 	projectionMatrix;
 uniform	mat4 	viewMatrix;
 uniform	mat4 	modelMatrix;
 
+uniform vec2    animationUv;
+
 out vec2 texCoord; //make sure the texture coord is interpolated
 
 void main( void ){
     gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vertex, 1.f);
+    
+    vec2 newUv = uv * 0.5;
+
 	texCoord = uv;
     FragPos = vec3(modelMatrix * vec4(vertex,1.0f));
     Normal = mat3(transpose(inverse(modelMatrix))) * normal;

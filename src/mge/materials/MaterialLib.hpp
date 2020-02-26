@@ -4,11 +4,12 @@
 #include "AbstractMaterial.hpp"
 #include "TextureMaterial.hpp"
 #include "mge/core/Texture.hpp"
+#include "mge/util/HelperMethods.hpp"
+#include <algorithm>
 
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <istream>
 #include <map>
 #include <vector>

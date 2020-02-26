@@ -128,7 +128,6 @@ void TextureMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModel
         }
     }
 
-
     // ## ENDLIGHTING 
 
     //pass in all MVP matrices separately
