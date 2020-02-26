@@ -87,46 +87,46 @@ void TextureMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModel
 
     // ## LIGHTING STUFF
 
-    glUniform1i(_shader->getUniformLocation("NumOffSpotLights"), pWorld->getLightTypeCount(LightType::SPOT));
-    glUniform1i(_shader->getUniformLocation("NumOffPointLights"), pWorld->getLightTypeCount(LightType::POINT));
-    glUniform1i(_shader->getUniformLocation("NumOffDirLights"), pWorld->getLightTypeCount(LightType::DIRECTION));
-    glUniform1i(_shader->getUniformLocation("NumOffAmbientLights"), pWorld->getLightTypeCount(LightType::AMBIENT));
+    //glUniform1i(_shader->getUniformLocation("NumOffSpotLights"), pWorld->getLightTypeCount(LightType::SPOT));
+    //glUniform1i(_shader->getUniformLocation("NumOffPointLights"), pWorld->getLightTypeCount(LightType::POINT));
+    //glUniform1i(_shader->getUniformLocation("NumOffDirLights"), pWorld->getLightTypeCount(LightType::DIRECTION));
+    //glUniform1i(_shader->getUniformLocation("NumOffAmbientLights"), pWorld->getLightTypeCount(LightType::AMBIENT));
 
-    int totalNumOfLight = pWorld->getLightCount();
+    //int totalNumOfLight = pWorld->getLightCount();
 
-    int pointLightIndex = 0;
-    int spotLightIndex = 0;
-    int dirLightIndex = 0;
-    int ambientLightIndex = 0;
+    //int pointLightIndex = 0;
+    //int spotLightIndex = 0;
+    //int dirLightIndex = 0;
+    //int ambientLightIndex = 0;
 
-    for (int i = 0; i < totalNumOfLight; i++)
-    {
-        switch (pWorld->getLightAt(i)->Type())
-        {
-        case LightType::POINT:
-            addPointLight(i, pWorld, pointLightIndex);
-            pointLightIndex++;
-            break;
+    //for (int i = 0; i < totalNumOfLight; i++)
+    //{
+    //    switch (pWorld->getLightAt(i)->Type())
+    //    {
+    //    case LightType::POINT:
+    //        addPointLight(i, pWorld, pointLightIndex);
+    //        pointLightIndex++;
+    //        break;
 
-        case LightType::SPOT:
-            addSpotLight(i, pWorld, spotLightIndex);
-            spotLightIndex++;
-            break;
+    //    case LightType::SPOT:
+    //        addSpotLight(i, pWorld, spotLightIndex);
+    //        spotLightIndex++;
+    //        break;
 
-        case LightType::DIRECTION:
-            addDirLight(i, pWorld, dirLightIndex);
-            dirLightIndex++;
-            break;
+    //    case LightType::DIRECTION:
+    //        addDirLight(i, pWorld, dirLightIndex);
+    //        dirLightIndex++;
+    //        break;
 
-        case LightType::AMBIENT:
-            addAmbientLight(i, pWorld, ambientLightIndex);
-            ambientLightIndex++;
-            break;
+    //    case LightType::AMBIENT:
+    //        addAmbientLight(i, pWorld, ambientLightIndex);
+    //        ambientLightIndex++;
+    //        break;
 
-        default:
-            break;
-        }
-    }
+    //    default:
+    //        break;
+    //    }
+    //}
 
     // ## ENDLIGHTING 
 
@@ -142,44 +142,44 @@ void TextureMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModel
 
 void TextureMaterial::addPointLight(int lightIndex, World* pWorld, int typeIndex)
 {
-    std::string localTypeIndex = std::to_string(typeIndex);
+    //std::string localTypeIndex = std::to_string(typeIndex);
 
-    glUniform3fv(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].position"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->getLocalPosition()));
-    glUniform3fv(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].ambient"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.ambient));
-    glUniform3fv(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].diffuse"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.diffuse));
-    glUniform3fv(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].specular"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.specular));
+    //glUniform3fv(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].position"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->getLocalPosition()));
+    //glUniform3fv(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].ambient"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.ambient));
+    //glUniform3fv(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].diffuse"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.diffuse));
+    //glUniform3fv(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].specular"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.specular));
 
-    glUniform1f(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].constant"), pWorld->getLightAt(lightIndex)->properties.constant);
-    glUniform1f(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].linear"), pWorld->getLightAt(lightIndex)->properties.linear);
-    glUniform1f(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].quadratic"), pWorld->getLightAt(lightIndex)->properties.quadratic);
+    //glUniform1f(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].constant"), pWorld->getLightAt(lightIndex)->properties.constant);
+    //glUniform1f(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].linear"), pWorld->getLightAt(lightIndex)->properties.linear);
+    //glUniform1f(_shader->getUniformLocation("pointLights[" + localTypeIndex + "].quadratic"), pWorld->getLightAt(lightIndex)->properties.quadratic);
 }
 
 void TextureMaterial::addSpotLight(int lightIndex, World* pWorld, int typeIndex)
 {
-    std::string localTypeIndex = std::to_string(typeIndex);
+    //std::string localTypeIndex = std::to_string(typeIndex);
 
-    glUniform3fv(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].position"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->getLocalPosition()));
-    glUniform3fv(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].direction"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.direction));
-    glUniform3fv(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].ambient"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.ambient));
-    glUniform3fv(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].diffuse"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.diffuse));
-    glUniform3fv(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].specular"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.specular));
+    //glUniform3fv(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].position"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->getLocalPosition()));
+    //glUniform3fv(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].direction"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.direction));
+    //glUniform3fv(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].ambient"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.ambient));
+    //glUniform3fv(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].diffuse"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.diffuse));
+    //glUniform3fv(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].specular"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.specular));
 
-    glUniform1f(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].constant"), pWorld->getLightAt(lightIndex)->properties.constant);
-    glUniform1f(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].linear"), pWorld->getLightAt(lightIndex)->properties.linear);
-    glUniform1f(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].quadratic"), pWorld->getLightAt(lightIndex)->properties.quadratic);
+    //glUniform1f(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].constant"), pWorld->getLightAt(lightIndex)->properties.constant);
+    //glUniform1f(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].linear"), pWorld->getLightAt(lightIndex)->properties.linear);
+    //glUniform1f(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].quadratic"), pWorld->getLightAt(lightIndex)->properties.quadratic);
 
-    glUniform1f(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].cutOff"), pWorld->getLightAt(lightIndex)->properties.cutOff);
-    glUniform1f(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].outerCutOff"), pWorld->getLightAt(lightIndex)->properties.outerCutOff);
+    //glUniform1f(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].cutOff"), pWorld->getLightAt(lightIndex)->properties.cutOff);
+    //glUniform1f(_shader->getUniformLocation("spotLights[" + localTypeIndex + "].outerCutOff"), pWorld->getLightAt(lightIndex)->properties.outerCutOff);
 }
 
 void TextureMaterial::addDirLight(int lightIndex, World* pWorld, int typeIndex)
 {
-    std::string localTypeIndex = std::to_string(typeIndex);
+    //std::string localTypeIndex = std::to_string(typeIndex);
 
-    glUniform3fv(_shader->getUniformLocation("dirLights[" + localTypeIndex + "].direction"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.direction));
-    glUniform3fv(_shader->getUniformLocation("dirLights[" + localTypeIndex + "].ambient"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.ambient));
-    glUniform3fv(_shader->getUniformLocation("dirLights[" + localTypeIndex + "].diffuse"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.diffuse));
-    glUniform3fv(_shader->getUniformLocation("dirLights[" + localTypeIndex + "].specular"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.specular));
+    //glUniform3fv(_shader->getUniformLocation("dirLights[" + localTypeIndex + "].direction"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.direction));
+    //glUniform3fv(_shader->getUniformLocation("dirLights[" + localTypeIndex + "].ambient"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.ambient));
+    //glUniform3fv(_shader->getUniformLocation("dirLights[" + localTypeIndex + "].diffuse"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.diffuse));
+    //glUniform3fv(_shader->getUniformLocation("dirLights[" + localTypeIndex + "].specular"), 1, glm::value_ptr(pWorld->getLightAt(lightIndex)->properties.specular));
 
 }
 

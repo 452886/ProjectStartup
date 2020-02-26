@@ -92,26 +92,26 @@ void UnityImportScene::_initializeScene()
 
     _processChildren(root_node, _world);
 
-    LightProperties properties;
-    properties.ambient = glm::vec3(0.5f, 0.5f, 0.5f);
-    properties.direction = glm::vec3(0.5f, 1, 0);
+ //   LightProperties properties;
+ //   properties.ambient = glm::vec3(0.5f, 0.5f, 0.5f);
+ //   properties.direction = glm::vec3(0.5f, 1, 0);
 
-    Light* light = new Light("point first light", glm::vec3(0, 4.5f, 0), LightType::DIRECTION, properties);
-    light->scale(glm::vec3(0.1f, 0.1f, 0.1f));
-    light->setBehaviour(new KeysBehaviour(25));
-    _world->add(light);
+ //   Light* light = new Light("point first light", glm::vec3(0, 4.5f, 0), LightType::DIRECTION, properties);
+ //   light->scale(glm::vec3(0.1f, 0.1f, 0.1f));
+ //   light->setBehaviour(new KeysBehaviour(25));
+ //   _world->add(light);
 
-	LightProperties propertiesTwo;
-	properties.ambient = glm::vec3(1, 1, 1);
-	properties.direction = glm::vec3(0, 1, 0);
-	properties.cutOff = glm::cos(glm::radians(12.5f));
-	properties.cutOff = glm::cos(glm::radians(12.5f));
+	//LightProperties propertiesTwo;
+	//properties.ambient = glm::vec3(1, 1, 1);
+	//properties.direction = glm::vec3(0, 1, 0);
+	//properties.cutOff = glm::cos(glm::radians(12.5f));
+	//properties.cutOff = glm::cos(glm::radians(12.5f));
 
-	Light* lightTwo = new Light("point first light", glm::vec3(0, -2, -12), LightType::POINT, propertiesTwo);
-	lightTwo->scale(glm::vec3(0.1f, 0.1f, 0.1f));
-	lightTwo->setMesh(cubeMeshF);
-	lightTwo->setMaterial(boxmaterial);
-	_world->add(lightTwo);
+	//Light* lightTwo = new Light("point first light", glm::vec3(0, -2, -12), LightType::POINT, propertiesTwo);
+	//lightTwo->scale(glm::vec3(0.1f, 0.1f, 0.1f));
+	//lightTwo->setMesh(cubeMeshF);
+	//lightTwo->setMaterial(boxmaterial);
+	//_world->add(lightTwo);
 }
 
 void UnityImportScene::_render() {

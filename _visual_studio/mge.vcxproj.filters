@@ -23,6 +23,9 @@
     <Filter Include="MGE Source files\mge\Scenes">
       <UniqueIdentifier>{d80b7f6e-4124-4597-ab87-141dd1125371}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\lights">
+      <UniqueIdentifier>{131de30f-a1ad-4051-9e39-49226792e9fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -79,9 +82,6 @@
     <ClInclude Include="..\src\mge\config.hpp">
       <Filter>MGE Source files\mge</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\core\Light.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mge\Scenes\LightingExample.hpp">
       <Filter>MGE Source files\mge\Scenes</Filter>
     </ClInclude>
@@ -93,6 +93,12 @@
     </ClInclude>
     <ClInclude Include="..\src\mge\util\HelperMethods.hpp">
       <Filter>MGE Source files\mge\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\core\Light.hpp">
+      <Filter>MGE Source files\mge\lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\lights\PointLight.hpp">
+      <Filter>MGE Source files\mge\lights</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -147,9 +153,6 @@
     <ClCompile Include="..\src\mge\MGEDemo.cpp">
       <Filter>MGE Source files\mge</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\core\Light.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mge\Scenes\LightingExample.cpp">
       <Filter>MGE Source files\mge\Scenes</Filter>
     </ClCompile>
@@ -161,6 +164,12 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\util\HelperMethods.cpp">
       <Filter>MGE Source files\mge\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\core\Light.cpp">
+      <Filter>MGE Source files\mge\lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\lights\PointLight.cpp">
+      <Filter>MGE Source files\mge\lights</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
