@@ -1,7 +1,7 @@
 #include "mge/core/Light.hpp"
 #include "mge/core/World.hpp"
 
-Light::Light(const std::string& pName, const glm::vec3& aPosition) :GameObject(pName, aPosition)
+Light::Light(const std::string& pName, const LightType type, const glm::vec3& aPosition) :GameObject(pName, aPosition), _lightType(type)
 {
 
 }
@@ -22,5 +22,10 @@ void Light::_setWorldRecursively(World* pWorld) {
     //check whether we need to register or unregister
     if (previousWorld != nullptr) previousWorld->unregisterLight(this);
     if (newWorld != nullptr) newWorld->registerLight(this);
+}
+
+LightType Light::GetType()
+{
+	return _lightType;
 }
 

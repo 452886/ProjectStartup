@@ -60,24 +60,18 @@ void UnityImportScene::_initializeScene()
     Mesh* cubeMeshF = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
 	AbstractMaterial* boxmaterial = _world->matLib->getMaterial("box");
 
- //   cube = new GameObject("cube", glm::vec3(0, -8, -15));
- //   cube->scale(glm::vec3(5, 5, 5));
- //   cube->setMesh(cubeMeshF);
-	//cube->setMaterial(boxmaterial);
- //   cube->setBehaviour(new KeysBehaviour(4));
- //   _world->add(cube);
+    cube = new GameObject("cube", glm::vec3(0, -8, -15));
+    cube->scale(glm::vec3(5, 5, 5));
+    cube->setMesh(cubeMeshF);
+	cube->setMaterial(boxmaterial);
+    cube->addBehaviour(new KeysBehaviour(4));
+    _world->add(cube);
     
     //SCENE SETUP
 
-	DirLight* dirLight = new DirLight("dir-light", glm::vec3(2, 2, 2));
-	dirLight->Ambient() = glm::vec3(0.1f, 0.1f, 0.1f);
-	dirLight->LDirection() = glm::vec3(0, -1, 0);
-	_world->add(dirLight);
-
-	SpotLight* spotLight = new SpotLight("spot-light", glm::vec3(0, 4, -20));
-	spotLight->Ambient() = glm::vec3(1, 1, 1);
-	spotLight->LDirection() = glm::vec3(0, -1, 0);
-	_world->add(spotLight);
+	Light* light = new Light("dir light", LightType::POINT,glm::vec3(0,2,-8));
+	light->LDirection() = glm::vec3(0, -1, 0);
+	_world->add(light);
 
     //add camera first (it will be updated last)
     camera = new Camera("camera", glm::vec3(0, 0, 0));

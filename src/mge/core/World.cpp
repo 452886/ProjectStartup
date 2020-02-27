@@ -23,15 +23,15 @@ void World::registerLight(Light* pLight) {
     switch (pLight->GetType())
     {
     case LightType::POINT:
-		_pointLights.push_back(dynamic_cast<PointLight*>(pLight));
+		_pointLightCount++;
         break;
 
     case LightType::SPOT:
-		_spotLights.push_back(dynamic_cast<SpotLight*>(pLight));
+		_spotLightCount++;
         break;
 
     case LightType::DIRECTION:
-		_dirLights.push_back(dynamic_cast<DirLight*>(pLight));
+		_dirLightCount++;
         break;
 
     case LightType::AMBIENT:
@@ -50,15 +50,18 @@ void World::unregisterLight(Light* pLight) {
     switch (pLight->GetType())
     {
     case LightType::POINT:
-		_pointLights.erase(std::remove(_pointLights.begin(), _pointLights.end(), dynamic_cast<PointLight*>(pLight)), _pointLights.end());
+		if (_pointLightCount < 0)
+			_pointLightCount--;
         break;
 
     case LightType::SPOT:
-		_spotLights.erase(std::remove(_spotLights.begin(), _spotLights.end(), dynamic_cast<SpotLight*>(pLight)), _spotLights.end());
+		if (_spotLightCount < 0)
+			_spotLightCount--;
         break;
 
     case LightType::DIRECTION:
-		_dirLights.erase(std::remove(_dirLights.begin(), _dirLights.end(), dynamic_cast<DirLight*>(pLight)), _dirLights.end());
+		if (_dirLightCount < 0)
+			_dirLightCount--;
         break;
 
     case LightType::AMBIENT:
@@ -79,35 +82,20 @@ int World::getTotalLightCount() {
     return _lights.size();
 }
 
-DirLight* World::getDirLightAt(int pIndex)
-{
-	return _dirLights[pIndex];
-}
-
-SpotLight* World::getSpotLightAt(int pIndex)
-{
-	return _spotLights[pIndex];
-}
-
-PointLight* World::getPointLightAt(int pIndex)
-{
-	return _pointLights[pIndex];
-}
-
 int World::getLightTypeCount(LightType type)
 {
 	switch (type)
 	{
 	case LightType::POINT:
-		return _pointLights.size();
+		return _pointLightCount;
 		break;
 
 	case LightType::SPOT:
-		return _spotLights.size();
+		return _spotLightCount;
 		break;
 
 	case LightType::DIRECTION:
-		return _dirLights.size();
+		return _dirLightCount;
 		break;
 
 	case LightType::AMBIENT:

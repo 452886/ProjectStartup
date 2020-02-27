@@ -46,10 +46,10 @@ private:
     TextureMaterial(const TextureMaterial&);
     TextureMaterial& operator=(const TextureMaterial&);
 
-    void addPointLight(int lightIndex, World* pWorld);
-    void addSpotLight(int lightIndex, World* pWorld);
-    void addDirLight(int lightIndex, World* pWorld);
-    void addAmbientLight(int lightIndex, World* pWorld);
+    void addPointLight(int lightIndex, World* pWorld, int pointLightIndex);
+    void addSpotLight(int lightIndex, World* pWorld, int spotLightIndex);
+    void addDirLight(int lightIndex, World* pWorld, int dirLightIndex);
+    void addAmbientLight(int lightIndex, World* pWorld, int ambientLightIndex);
 
 
 };

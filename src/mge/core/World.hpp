@@ -26,9 +26,6 @@ public:
 	Light* getLightAt(int pIndex);
 	int getTotalLightCount();
 
-	DirLight* getDirLightAt(int pIndex);
-	SpotLight* getSpotLightAt(int pIndex);
-	PointLight* getPointLightAt(int pIndex);
 	int getLightTypeCount(LightType type);
 
 	MaterialLib* matLib = new MaterialLib();
@@ -37,9 +34,9 @@ private:
 	Camera* _mainCamera;
 	std::vector<Light*> _lights;
 
-	std::vector<DirLight*> _dirLights;
-	std::vector<SpotLight*> _spotLights;
-	std::vector<PointLight*> _pointLights;
+	int _dirLightCount = 0;
+	int _pointLightCount = 0;
+	int _spotLightCount = 0;
 
 	World(const World&);
 	World& operator=(const World&);
