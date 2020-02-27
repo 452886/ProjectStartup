@@ -12,6 +12,13 @@
 #include "rapidxml-1.13/rapidxml_utils.hpp"
 
 #include "mge/core/GameObject.hpp"
+
+#include "mge/core/Camera.hpp"
+
+#include "mge/lights/DirLight.hpp"
+#include "mge/lights/SpotLight.hpp"
+#include "mge/lights/PointLight.hpp"
+
 #include "mge/core/Mesh.hpp"
 
 class World;
