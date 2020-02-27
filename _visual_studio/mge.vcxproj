@@ -172,6 +172,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp" />
     <ClInclude Include="..\src\mge\behaviours\AbstractBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\HoverBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\KeysBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\RotatingBehaviour.hpp" />
     <ClInclude Include="..\src\mge\config.hpp" />
@@ -184,7 +185,9 @@
     <ClInclude Include="..\src\mge\core\ShaderProgram.hpp" />
     <ClInclude Include="..\src\mge\core\Texture.hpp" />
     <ClInclude Include="..\src\mge\core\World.hpp" />
+    <ClInclude Include="..\src\mge\lights\DirLight.hpp" />
     <ClInclude Include="..\src\mge\lights\PointLight.hpp" />
+    <ClInclude Include="..\src\mge\lights\SpotLight.hpp" />
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\MaterialLib.hpp" />
@@ -198,6 +201,7 @@
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\mge\behaviours\AbstractBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\HoverBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\KeysBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\RotatingBehaviour.cpp" />
     <ClCompile Include="..\src\mge\core\AbstractGame.cpp" />
@@ -209,7 +213,9 @@
     <ClCompile Include="..\src\mge\core\ShaderProgram.cpp" />
     <ClCompile Include="..\src\mge\core\Texture.cpp" />
     <ClCompile Include="..\src\mge\core\World.cpp" />
+    <ClCompile Include="..\src\mge\lights\DirLight.cpp" />
     <ClCompile Include="..\src\mge\lights\PointLight.cpp" />
+    <ClCompile Include="..\src\mge\lights\SpotLight.cpp" />
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\MaterialLib.cpp" />

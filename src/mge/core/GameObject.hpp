@@ -48,8 +48,8 @@ class GameObject
 		AbstractMaterial* getMaterial() const;
 
         //behaviour is expected to be unique per game object, in general do NOT share them between objects
-		void setBehaviour(AbstractBehaviour* pBehaviour);
-		AbstractBehaviour* getBehaviour() const;
+		void addBehaviour(AbstractBehaviour* pBehaviour);
+		AbstractBehaviour* getBehaviour(int index) const;
 
 		virtual void update(float pStep);
 
@@ -76,7 +76,7 @@ class GameObject
 		std::vector<GameObject*> _children;
 
         Mesh* _mesh;
-		AbstractBehaviour* _behaviour;
+		std::vector<AbstractBehaviour*> _behaviours;
 		AbstractMaterial* _material;
 		World* _world;
 

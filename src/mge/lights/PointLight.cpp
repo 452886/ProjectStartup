@@ -9,3 +9,8 @@ PointLight::~PointLight()
 {
 
 }
+
+LightType PointLight::GetType()
+{
+	return LightType::POINT;
+}

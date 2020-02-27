@@ -7,6 +7,7 @@
 
 #include "mge/behaviours/RotatingBehaviour.hpp"
 #include "mge/behaviours/KeysBehaviour.hpp"
+#include "mge/behaviours/HoverBehaviour.hpp"
 
 AbstractGame::AbstractGame():_window(NULL),_renderer(NULL),_world(NULL), _fps(0)
 {
@@ -256,8 +257,6 @@ GameObject* AbstractGame::_convertGameObject(rapidxml::xml_node<>* pXmlNode, Gam
 			for (auto const& value : behaviours) {
 				AddBehaviourFromString(gameObject, value);
 			}
-
-
 		}
 	}
 
@@ -266,13 +265,13 @@ GameObject* AbstractGame::_convertGameObject(rapidxml::xml_node<>* pXmlNode, Gam
 
 void AbstractGame::AddBehaviourFromString(GameObject* gameObject, std::string n) {
 	// Imagine not being able to build a switch statment on strings
-
 	if (n == "ROTATECLOCKWISE")
-		gameObject->setBehaviour(new RotatingBehaviour());
+		gameObject->addBehaviour(new RotatingBehaviour());
 	else if (n == "ROTATECOUNTERCLOCKWISE")
-		gameObject->setBehaviour(new RotatingBehaviour());
+		gameObject->addBehaviour(new RotatingBehaviour());
 	else if (n == "KEYMOVEMEND")
-		gameObject->setBehaviour(new KeysBehaviour(5));
-
+		gameObject->addBehaviour(new KeysBehaviour(5));
+	else if (n == "HOVER")
+		gameObject->addBehaviour(new HoverBehaviour());
 }
 

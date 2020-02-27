@@ -3,6 +3,9 @@
 
 #include "mge/core/GameObject.hpp"
 #include "mge/core/Light.hpp"
+#include "mge/lights/DirLight.hpp"
+#include "mge/lights/SpotLight.hpp"
+#include "mge/lights/PointLight.hpp"
 #include "mge/materials/MaterialLib.hpp"
 
 class Camera;
@@ -21,27 +24,25 @@ public:
 	void unregisterLight(Light* pLight);
 
 	Light* getLightAt(int pIndex);
-	int getLightCount();
+	int getTotalLightCount();
+
+	DirLight* getDirLightAt(int pIndex);
+	SpotLight* getSpotLightAt(int pIndex);
+	PointLight* getPointLightAt(int pIndex);
+	int getLightTypeCount(LightType type);
 
 	MaterialLib* matLib = new MaterialLib();
-
-	// THIS IS ONLY USED FOR GIVING THE FRAGMENT SHADER THE RIGHT ARRAY INDEX AMMOUNT
-	// YOU CAN'T USE THESE TO THE THE INDEX OF THAT SPECIFIC LIGHT
-	// TO DO 
-	int getLightTypeCount(LightType type);
 
 private:
 	Camera* _mainCamera;
 	std::vector<Light*> _lights;
 
+	std::vector<DirLight*> _dirLights;
+	std::vector<SpotLight*> _spotLights;
+	std::vector<PointLight*> _pointLights;
+
 	World(const World&);
 	World& operator=(const World&);
-
-	int _pointLightCount = 0;
-	int _spotLightCount = 0;
-	int _dirLightCount = 0;
-	int _ambientLightCount = 0;
-
 };
 
 

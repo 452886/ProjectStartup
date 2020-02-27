@@ -27,10 +27,18 @@ public:
 	// get the light type
 	virtual LightType GetType() = 0;
 
+	glm::vec3& Ambient() { return _ambient; };
+	glm::vec3& Diffuse() { return _diffuse; };
+	glm::vec3& Specular() { return _specular; };
+
 protected:
 	Light(const std::string& aName = nullptr, const glm::vec3& aPosition = glm::vec3(0, 5, 0));
 
 private:
+	// Basic lighting properties
+	glm::vec3 _ambient = glm::vec3(1, 1, 1);
+	glm::vec3 _diffuse = glm::vec3(1, 1, 1);
+	glm::vec3 _specular = glm::vec3(1, 1, 1);
 };
 
 #endif // LIGHT_HPP

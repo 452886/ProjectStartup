@@ -100,6 +100,15 @@
     <ClInclude Include="..\src\mge\lights\PointLight.hpp">
       <Filter>MGE Source files\mge\lights</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\lights\SpotLight.hpp">
+      <Filter>MGE Source files\mge\lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\lights\DirLight.hpp">
+      <Filter>MGE Source files\mge\lights</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\HoverBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -170,6 +179,15 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\lights\PointLight.cpp">
       <Filter>MGE Source files\mge\lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\lights\SpotLight.cpp">
+      <Filter>MGE Source files\mge\lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\lights\DirLight.cpp">
+      <Filter>MGE Source files\mge\lights</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\HoverBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
