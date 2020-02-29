@@ -197,6 +197,19 @@ void AbstractGame::_processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pG
 		std::cout << newNode->getName() << " added to " << currentNode->getName() << std::endl;
 		currentNode = newNode;
 	}
+	else if (strcmp(pXmlNode->name(), "Light") == 0) {
+		Light* newNode = _convertLight(pXmlNode, currentNode);
+		currentNode->add(newNode);
+		std::cout << newNode->getName() << " added to " << currentNode->getName() << std::endl;
+		currentNode = newNode;
+	}
+	else if (strcmp(pXmlNode->name(), "Camera") == 0) {
+		Camera* newNode = _convertCamera(pXmlNode, currentNode);
+		currentNode->add(newNode);
+		_world->setMainCamera(newNode);
+		std::cout << newNode->getName() << " added to " << currentNode->getName() << std::endl;
+		currentNode = newNode;
+	}
 
 	_processChildren(pXmlNode, currentNode);
 }
@@ -261,6 +274,165 @@ GameObject* AbstractGame::_convertGameObject(rapidxml::xml_node<>* pXmlNode, Gam
 	}
 
 	return gameObject;
+}
+
+Light* AbstractGame::_convertLight(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
+{
+	Light* light = new Light("temp light");
+
+	for (rapidxml::xml_attribute<>* attrib = pXmlNode->first_attribute();
+		attrib != NULL;
+		attrib = attrib->next_attribute()
+		)
+	{
+		std::cout << attrib->name() << "=" << attrib->value() << std::endl;
+		std::string attribName = attrib->name();
+
+		//process code...
+		if (attribName == "name") {
+
+			light->setName(attrib->value());
+
+		}
+		else if (attribName == "position") {
+
+			glm::vec3 position;
+			sscanf(attrib->value(), "(%f, %f, %f)", &position.x, &position.y, &position.z);
+			light->setLocalPosition(position);
+
+		}
+		else if (attribName == "rotation") {
+
+			glm::quat rotation;
+			sscanf(attrib->value(), "(%f, %f, %f, %f)", &rotation.x, &rotation.y, &rotation.z, &rotation.w);
+			light->rotate(glm::angle(rotation), glm::axis(rotation));
+			light->rotate(glm::radians(90.f), glm::vec3(1, 0, 0));
+		}
+
+		else if (attribName == "scale") {
+			glm::vec3 scale;
+			sscanf(attrib->value(), "(%f, %f, %f)", &scale.x, &scale.y, &scale.z);
+			light->scale(scale);
+		}
+		else if (attribName == "mesh") {
+			Mesh* mesh = Mesh::load(config::MGE_MODEL_PATH + attrib->value());
+			light->setMesh(mesh);
+		}
+		else if (attribName == "material") {
+			// Material libary
+			std::cout << attrib->value() << std::endl;
+			light->setMaterial(_world->matLib->getMaterial(attrib->value()));
+		}
+		else if (attribName == "behaviours") {
+			// Set the behaviour
+			std::string upperCase = attrib->value();
+			std::transform(upperCase.begin(), upperCase.end(), upperCase.begin(), ::toupper);
+
+			std::vector<std::string> behaviours = HelperMethods::split(upperCase, '-');
+
+			for (auto const& value : behaviours) {
+				AddBehaviourFromString(light, value);
+			}
+		}
+		else if (attribName == "type") {
+			if (attrib->value() == "Point") {
+				light->SetLightType(LightType::POINT);
+			}
+			else if (attrib->value() == "Directional") {
+				light->SetLightType(LightType::DIRECTION);
+			}
+			else if (attrib->value() == "Spot") {
+				light->SetLightType(LightType::SPOT);
+			}
+			else {
+				light->SetLightType(LightType::POINT);
+			}
+		}
+		else if (attribName == "ambient") {
+			glm::vec3 ambient;
+			sscanf(attrib->value(), "(%f, %f, %f)", &ambient.x, &ambient.y, &ambient.z);
+			light->Ambient() = ambient;
+		}
+		else if (attribName == "diffuse") {
+			glm::vec3 diffuse;
+			sscanf(attrib->value(), "(%f, %f, %f)", &diffuse.x, &diffuse.y, &diffuse.z);
+			light->Diffuse() = diffuse;
+		}
+		else if (attribName == "cutOff") {
+			light->CutOff() = ::atof(attrib->value());
+		}
+		else if (attribName == "outerCutOff") {
+			light->OuterCutOff() = ::atof(attrib->value());
+		}
+		else if (attribName == "range") {
+			light->Range() = ::atof(attrib->value());
+		}
+	}
+
+	return light;
+}
+
+Camera* AbstractGame::_convertCamera(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
+{
+	Camera* camera = new Camera("temp camera");
+
+	for (rapidxml::xml_attribute<>* attrib = pXmlNode->first_attribute();
+		attrib != NULL;
+		attrib = attrib->next_attribute()
+		)
+	{
+		std::cout << attrib->name() << "=" << attrib->value() << std::endl;
+		std::string attribName = attrib->name();
+
+		//process code...
+		if (attribName == "name") {
+
+			camera->setName(attrib->value());
+
+		}
+		else if (attribName == "position") {
+
+			glm::vec3 position;
+			sscanf(attrib->value(), "(%f, %f, %f)", &position.x, &position.y, &position.z);
+			camera->setLocalPosition(position);
+
+		}
+		else if (attribName == "rotation") {
+
+			glm::quat rotation;
+			sscanf(attrib->value(), "(%f, %f, %f, %f)", &rotation.x, &rotation.y, &rotation.z, &rotation.w);
+			camera->rotate(glm::angle(rotation), glm::axis(rotation));
+			camera->rotate(glm::radians(180.f), glm::vec3(0, 1, 0));
+		}
+
+		else if (attribName == "scale") {
+			glm::vec3 scale;
+			sscanf(attrib->value(), "(%f, %f, %f)", &scale.x, &scale.y, &scale.z);
+			camera->scale(scale);
+		}
+		else if (attribName == "mesh") {
+			Mesh* mesh = Mesh::load(config::MGE_MODEL_PATH + attrib->value());
+			camera->setMesh(mesh);
+		}
+		else if (attribName == "material") {
+			// Material libary
+			std::cout << attrib->value() << std::endl;
+			camera->setMaterial(_world->matLib->getMaterial(attrib->value()));
+		}
+		else if (attribName == "behaviours") {
+			// Set the behaviour
+			std::string upperCase = attrib->value();
+			std::transform(upperCase.begin(), upperCase.end(), upperCase.begin(), ::toupper);
+
+			std::vector<std::string> behaviours = HelperMethods::split(upperCase, '-');
+
+			for (auto const& value : behaviours) {
+				AddBehaviourFromString(camera, value);
+			}
+		}
+	}
+
+	return camera;
 }
 
 void AbstractGame::AddBehaviourFromString(GameObject* gameObject, std::string n) {

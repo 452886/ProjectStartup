@@ -59,24 +59,22 @@ void UnityImportScene::_initializeScene()
 {
     Mesh* cubeMeshF = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
 	AbstractMaterial* boxmaterial = _world->matLib->getMaterial("box");
-
-    cube = new GameObject("cube", glm::vec3(0, -8, -15));
-    cube->scale(glm::vec3(5, 5, 5));
-    cube->setMesh(cubeMeshF);
-	cube->setMaterial(boxmaterial);
-    cube->addBehaviour(new KeysBehaviour(4));
-    _world->add(cube);
     
     //SCENE SETUP
 
-	Light* light = new Light("dir light", LightType::POINT,glm::vec3(0,2,-8));
-	light->LDirection() = glm::vec3(0, -1, 0);
-	_world->add(light);
+	//Light* light = new Light("dir light", LightType::POINT,glm::vec3(0,2,-8));
+	//_world->add(light);
 
     //add camera first (it will be updated last)
     camera = new Camera("camera", glm::vec3(0, 0, 0));
-    camera->rotate(glm::radians(-20.0f), glm::vec3(1, 0, 0));
-    _world->add(camera);
+
+	std::cout << "####" << std::endl;
+	std::cout << "Rotation when made: " << camera->getLocalRotation() << std::endl;
+    camera->rotate(glm::radians(270.0f), glm::vec3(1, 0, 0));
+	std::cout << "Rotation when changed: " << camera->getLocalRotation() << std::endl;
+	std::cout << "####" << std::endl;
+
+	_world->add(camera);
     _world->setMainCamera(camera);
     
     //Default template is char

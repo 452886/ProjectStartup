@@ -1,18 +1,7 @@
 <root>
-  <DirLight name="Directional Light" position="(0, 0, 0)" rotation="(0.4, 0.0, 0.0, 0.9)" scale="(1, 1, 1)" />
-  <Camera name="MainCamera" position="(0, 0.79, -23.61)" rotation="(0.2, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" />
-  <GameObject name="Street" position="(-0.07746363, -0.5212991, -19.99934)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" behaviours="KEYMOVEMEND">
-    <GameObject name="House" position="(0.07746363, -7.264705, -0.120657)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" behaviours="ROTATECLOCKWISE">
-      <GameObject name="Room" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)">
-        <GameObject name="Chair_Prop_Chair" position="(-1.401, 6.906003, -0.517)" rotation="(0.0, -0.4, 0.0, 0.9)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="bricks" behaviours="hover" />
-        <GameObject name="Chair_Prop_Chair" position="(-1.48, 6.906003, 1.134)" rotation="(0.0, 0.4, 0.0, 0.9)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="land" behaviours="hover" />
-        <GameObject name="Chair_Prop_Chair" position="(-0.143, 6.906003, -0.932)" rotation="(0.0, -0.7, 0.0, 0.7)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="box" behaviours="hover" />
-      </GameObject>
-      <GameObject name="Room" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)">
-        <GameObject name="Chair_Prop_Chair" position="(1.068, 6.906003, 1.036)" rotation="(0.0, 0.9, 0.0, 0.4)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="box" behaviours="" />
-        <GameObject name="Chair_Prop_Chair" position="(1.033, 6.906003, -0.464)" rotation="(0.0, 0.9, 0.0, -0.4)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="runicfloor" behaviours="" />
-        <GameObject name="Chair_Prop_Chair" position="(-0.178, 6.906003, 1.392)" rotation="(0.0, 0.7, 0.0, 0.7)" scale="(0.015, 0.015, 0.015)" mesh="Chair_Prop_Chair.obj" material="chair" behaviours="" />
-      </GameObject>
-    </GameObject>
+  <Camera name="MainCamera" position="(0, 1.615, -2.075)" rotation="(0.1, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" behaviours="" FOV="60" />
+  <GameObject name="Chair_Prop_Chair" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)" mesh="Chair_Prop_Chair.obj" material="box" behaviours="" />
+  <GameObject name="Chair_Prop_Chair" position="(0, 1.406, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.005, 0.005, 0.005)" mesh="Chair_Prop_Chair.obj" material="box" behaviours="">
+    <Light name="Point Light" position="(0, -1.200008, 0)" rotation="(0.7, 0.0, 0.0, 0.7)" scale="(200, 200.0001, 200.0001)" type="Spot" ambient="(1, 1, 1)" diffuse="(1, 1, 1)" cutOff="1" outerCutOff="32" range="10" />
   </GameObject>
 </root>

@@ -29,3 +29,8 @@ LightType Light::GetType()
 	return _lightType;
 }
 
+void Light::SetLightType(LightType type)
+{
+	_lightType = type;
+}
+

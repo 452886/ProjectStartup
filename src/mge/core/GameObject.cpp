@@ -53,6 +53,20 @@ glm::vec3 GameObject::getLocalPosition() const
 	return glm::vec3(_transform[3]);
 }
 
+glm::vec3 GameObject::getLocalRotation() const
+{
+	glm::vec3 scale;
+	glm::quat rotation;
+	glm::vec3 translation;
+	glm::vec3 skew;
+	glm::vec4 perspective;
+	glm::decompose(_transform, scale, rotation, translation, skew, perspective);
+	rotation = glm::conjugate(rotation);
+
+	glm::vec3 endRotation = glm::eulerAngles(rotation) * 180.f / 3.14159f;
+	return endRotation;
+}
+
 void GameObject::setMaterial(AbstractMaterial* pMaterial)
 {
     _material = pMaterial;

@@ -33,6 +33,8 @@ struct PointLight
     float constant;
     float linear;
     float quadratic;
+
+    float range;
 };
 
 struct SpotLight
@@ -51,6 +53,7 @@ struct SpotLight
     float linear;
     float quadratic;
     
+    float range;
 };
 
 struct AmbientLight

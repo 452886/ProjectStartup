@@ -12,12 +12,10 @@
 #include "rapidxml-1.13/rapidxml_utils.hpp"
 
 #include "mge/core/GameObject.hpp"
-
+#include "mge/core/Light.hpp"
 #include "mge/core/Camera.hpp"
 
-#include "mge/lights/DirLight.hpp"
-#include "mge/lights/SpotLight.hpp"
-#include "mge/lights/PointLight.hpp"
+#include "mge/core/Camera.hpp"
 
 #include "mge/core/Mesh.hpp"
 
@@ -76,6 +74,9 @@ class AbstractGame
 		void _processChildren(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		void _processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		GameObject* _convertGameObject(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
+		Light* _convertLight(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
+		Camera* _convertCamera(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
+
 
 
     private:

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "glm.hpp"
+#include "glm/gtx/matrix_decompose.hpp"
 
 class AbstractCollider;
 class AbstractBehaviour;
@@ -29,6 +30,9 @@ class GameObject
         //access just the local position
 		void setLocalPosition (glm::vec3 pPosition);
 		glm::vec3 getLocalPosition() const;
+
+		//acces just the local rotation
+		glm::vec3 getLocalRotation() const;
 
         //get the objects world position by combining transforms, SLOW use with care
 		glm::vec3 getWorldPosition() const;
