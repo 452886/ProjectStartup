@@ -61,21 +61,6 @@ void UnityImportScene::_initializeScene()
 	AbstractMaterial* boxmaterial = _world->matLib->getMaterial("box");
     
     //SCENE SETUP
-
-	//Light* light = new Light("dir light", LightType::POINT,glm::vec3(0,2,-8));
-	//_world->add(light);
-
-    //add camera first (it will be updated last)
-    camera = new Camera("camera", glm::vec3(0, 0, 0));
-
-	std::cout << "####" << std::endl;
-	std::cout << "Rotation when made: " << camera->getLocalRotation() << std::endl;
-    camera->rotate(glm::radians(270.0f), glm::vec3(1, 0, 0));
-	std::cout << "Rotation when changed: " << camera->getLocalRotation() << std::endl;
-	std::cout << "####" << std::endl;
-
-	_world->add(camera);
-    _world->setMainCamera(camera);
     
     //Default template is char
     rapidxml::file<> xmlFile("mge/levels/withmaterials_export.xml");
@@ -91,7 +76,6 @@ void UnityImportScene::_initializeScene()
 
 void UnityImportScene::_render() {
     AbstractGame::_render();
-
     _updateHud();
 }
 
