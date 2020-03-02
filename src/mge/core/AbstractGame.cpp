@@ -437,6 +437,7 @@ Camera* AbstractGame::_convertCamera(rapidxml::xml_node<>* pXmlNode, GameObject*
 }
 
 void AbstractGame::AddBehaviourFromString(GameObject* gameObject, std::string n) {
+
 	// Imagine not being able to build a switch statment on strings
 	if (n == "ROTATECLOCKWISE")
 		gameObject->addBehaviour(new RotatingBehaviour());
