@@ -8,6 +8,7 @@
 #include "mge/behaviours/RotatingBehaviour.hpp"
 #include "mge/behaviours/KeysBehaviour.hpp"
 #include "mge/behaviours/HoverBehaviour.hpp"
+#include "mge/behaviours/BackgroundMusicBehaviour.hpp"
 
 AbstractGame::AbstractGame():_window(NULL),_renderer(NULL),_world(NULL), _fps(0)
 {
@@ -445,5 +446,8 @@ void AbstractGame::AddBehaviourFromString(GameObject* gameObject, std::string n)
 		gameObject->addBehaviour(new KeysBehaviour(5));
 	else if (n == "HOVER")
 		gameObject->addBehaviour(new HoverBehaviour());
+	else if (n == "BACKGROUNDMUSIC") {
+		gameObject->addBehaviour(new BackgroundMusicBehaviour());
+	}
 }
 

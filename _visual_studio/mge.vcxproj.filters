@@ -109,6 +109,9 @@
     <ClInclude Include="..\src\mge\behaviours\HoverBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\BackgroundMusicBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -187,6 +190,9 @@
       <Filter>MGE Source files\mge\lights</Filter>
     </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\HoverBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\BackgroundMusicBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
   </ItemGroup>

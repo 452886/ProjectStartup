@@ -18,12 +18,13 @@ ShaderProgram* TextureMaterial::_shader = NULL;
 GLint TextureMaterial::_uMVPMatrix = 0;
 GLint TextureMaterial::_uDiffuseTexture = 0;
 GLint TextureMaterial::_uSpecularTexture = 0;
+GLint TextureMaterial::_uEmissionTexture = 0;
 
 GLint TextureMaterial::_aVertex = 0;
 GLint TextureMaterial::_aNormal = 0;
 GLint TextureMaterial::_aUV = 0;
 
-TextureMaterial::TextureMaterial(Texture* pDiffuseTexture, Texture* pSpecularTexture, const float pShininess) :_diffuseTexture(pDiffuseTexture), _specularTexture(pSpecularTexture), _shininess(pShininess) {
+TextureMaterial::TextureMaterial(Texture* pDiffuseTexture, Texture* pSpecularTexture, Texture* pEmissionTexture, const float pShininess) :_diffuseTexture(pDiffuseTexture), _specularTexture(pSpecularTexture), _emissionTexture(pEmissionTexture), _shininess(pShininess) {
 	_lazyInitializeShader();
 }
 
@@ -40,6 +41,7 @@ void TextureMaterial::_lazyInitializeShader() {
 		_uMVPMatrix = _shader->getUniformLocation("mvpMatrix");
 		_uDiffuseTexture = _shader->getUniformLocation("material.diffuse");
 		_uSpecularTexture = _shader->getUniformLocation("material.specular");
+		_uEmissionTexture = _shader->getUniformLocation("material.emission");
 
 		_aVertex = _shader->getAttribLocation("vertex");
 		_aNormal = _shader->getAttribLocation("normal");
@@ -62,12 +64,6 @@ void TextureMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModel
 
 	_shader->use();
 
-	//Print the number of lights in the scene and the position of the first light.
-	//It is not used, but this demo is just meant to show you THAT materials can access the lights in a world
-	//if (pWorld->getLightCount() > 0) {
-	//    std::cout << "TextureMaterial has discovered light is at position:" << pWorld->getLightAt(0)->getLocalPosition() << std::endl;
-	//}
-
 	//setup texture slot 0
 	glActiveTexture(GL_TEXTURE0);
 	//bind the texture to the current active slot
@@ -81,6 +77,13 @@ void TextureMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModel
 	glBindTexture(GL_TEXTURE_2D, _specularTexture->getId());
 	//tell the shader the texture slot for the specular texture is slot 1
 	glUniform1i(_uSpecularTexture, 1);
+
+	// setup texture slot 2
+	glActiveTexture(GL_TEXTURE2);
+	//bind the texture to the current active slot
+	glBindTexture(GL_TEXTURE_2D, _emissionTexture->getId());
+	//tell the shader the texture slot for the emission texture is slot 2
+	glUniform1i(_uEmissionTexture, 2);
 
 	glUniform3fv(_shader->getUniformLocation("viewPos"), 1, glm::value_ptr(pWorld->getMainCamera()->getLocalPosition()));
 	glUniform1f(_shader->getUniformLocation("material.shininess"), _shininess);

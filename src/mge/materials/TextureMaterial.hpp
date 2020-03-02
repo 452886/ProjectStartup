@@ -14,7 +14,7 @@ class Texture;
 class TextureMaterial : public AbstractMaterial
 {
 public:
-    TextureMaterial(Texture* pDiffuseTexture, Texture* pSpecularTexture, const float pShininess = 32.0f);
+    TextureMaterial(Texture* pDiffuseTexture, Texture* pSpecularTexture, Texture* pEmissionTexture, const float pShininess = 32.0f);
     virtual ~TextureMaterial();
 
     virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) override;
@@ -31,6 +31,7 @@ private:
     static GLint _uMVPMatrix;
     static GLint _uDiffuseTexture;
     static GLint _uSpecularTexture;
+	static GLint _uEmissionTexture;
 
     static GLint _aVertex;
     static GLint _aNormal;
@@ -40,6 +41,7 @@ private:
 
     Texture* _diffuseTexture;
     Texture* _specularTexture;
+	Texture* _emissionTexture;
 
     const float _shininess;
 
@@ -50,8 +52,6 @@ private:
     void addSpotLight(int lightIndex, World* pWorld, int spotLightIndex);
     void addDirLight(int lightIndex, World* pWorld, int dirLightIndex);
     void addAmbientLight(int lightIndex, World* pWorld, int ambientLightIndex);
-
-
 };
 
 #endif // TEXTUREMATERIAL_HPP

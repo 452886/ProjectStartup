@@ -46,7 +46,6 @@ void UnityImportScene::initialize() {
     std::cout << "HUD initialized." << std::endl << std::endl;
 }
 
-
 GameObject* cube;
 Camera* camera;
 glm::vec3 offSet;
@@ -56,10 +55,11 @@ int framespast;
 
 //build the game _world
 void UnityImportScene::_initializeScene()
-{
-    Mesh* cubeMeshF = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
-	AbstractMaterial* boxmaterial = _world->matLib->getMaterial("box");
-    
+{    
+
+	Light* dirLight = new Light("dir light", LightType::DIRECTION);
+	_world->add(dirLight);
+
     //SCENE SETUP
     
     //Default template is char

@@ -4,6 +4,7 @@
 
 KeysBehaviour::KeysBehaviour(float pMoveSpeed, float pTurnSpeed): AbstractBehaviour(), _moveSpeed(pMoveSpeed), _turnSpeed(pTurnSpeed)
 {
+
 }
 
 KeysBehaviour::~KeysBehaviour()
@@ -47,6 +48,16 @@ void KeysBehaviour::update( float pStep )
 		}
 		_owner->translate(directionVector);
 	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
+		_owner->rotate(pStep * glm::radians(-45.0f), glm::vec3(0, 1, 0.0f));
+
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
+		_owner->rotate(pStep * glm::radians(45.0f), glm::vec3(0, 1, 0.0f));
+	}
+
 
 	//we can also translate directly, basically we take the z axis from the matrix
 	//which is normalized and multiply it by moveSpeed*step, then we add it to the
