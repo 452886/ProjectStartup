@@ -19,6 +19,9 @@
 
 #include "mge/core/Mesh.hpp"
 
+#include"mge/nodegraph/Node.hpp"
+#include"mge/nodegraph/Nodegraph.hpp"
+
 class World;
 class Renderer;
 
@@ -76,6 +79,8 @@ class AbstractGame
 		GameObject* _convertGameObject(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		Light* _convertLight(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		Camera* _convertCamera(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
+        Nodegraph* _convertNodegraph(rapidxml::xml_node<>* pXmlNode);
+        Node* _convertNode(rapidxml::xml_node<>* pXmlNode);
 
 
 
