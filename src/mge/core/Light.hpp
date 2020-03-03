@@ -44,6 +44,7 @@ public:
 	float& CutOff() { return _cutOff; };
 	float& OuterCutOff() { return _outerCutOff; };
 
+
 protected:
 
 private:
@@ -58,7 +59,7 @@ private:
 	float _quadratic = 0.032f;
 	float _range = 1.0f;
 
-	glm::vec3 _direction = glm::vec3(1, 0, 0);
+	glm::vec3 _direction = glm::vec3(0, 0, 1);
 
 	float _cutOff = glm::cos(glm::radians(12.5f));
 	float _outerCutOff = glm::cos(glm::radians(17.5f));

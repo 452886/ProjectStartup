@@ -7,14 +7,12 @@
 
 BackgroundMusicBehaviour::BackgroundMusicBehaviour()
 {
-	if (!buffer.loadFromFile(config::MGE_SOUND_PATH +"testbackgroundmusic.ogg")) {
-		std::cout << "###################### kut ###############" << std::endl;
+	if (!buffer.loadFromFile(config::MGE_SOUND_PATH +"BaseMusicLoop.ogg")) {
+
 	}
 	sound.setBuffer(buffer);
 	sound.setLoop(true);
 	sound.play();
-
-	std::cout << "###################### iets ###############" << std::endl;
 }
 
 BackgroundMusicBehaviour::~BackgroundMusicBehaviour()

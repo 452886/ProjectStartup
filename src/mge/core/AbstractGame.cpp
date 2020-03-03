@@ -307,7 +307,6 @@ Light* AbstractGame::_convertLight(rapidxml::xml_node<>* pXmlNode, GameObject* p
 			glm::quat rotation;
 			sscanf(attrib->value(), "(%f, %f, %f, %f)", &rotation.x, &rotation.y, &rotation.z, &rotation.w);
 			light->rotate(glm::angle(rotation), glm::axis(rotation));
-			light->rotate(glm::radians(90.f), glm::vec3(1, 0, 0));
 		}
 
 		else if (attribName == "scale") {
@@ -336,13 +335,17 @@ Light* AbstractGame::_convertLight(rapidxml::xml_node<>* pXmlNode, GameObject* p
 			}
 		}
 		else if (attribName == "type") {
-			if (attrib->value() == "Point") {
+
+			std::string valueString(attrib->value());
+
+			if (valueString == "Point") {
+
 				light->SetLightType(LightType::POINT);
 			}
-			else if (attrib->value() == "Directional") {
+			else if (valueString == "Directional") {
 				light->SetLightType(LightType::DIRECTION);
 			}
-			else if (attrib->value() == "Spot") {
+			else if (valueString == "Spot") {
 				light->SetLightType(LightType::SPOT);
 			}
 			else {
@@ -359,15 +362,17 @@ Light* AbstractGame::_convertLight(rapidxml::xml_node<>* pXmlNode, GameObject* p
 			sscanf(attrib->value(), "(%f, %f, %f)", &diffuse.x, &diffuse.y, &diffuse.z);
 			light->Diffuse() = diffuse;
 		}
-		else if (attribName == "cutOff") {
-			light->CutOff() = ::atof(attrib->value());
-		}
-		else if (attribName == "outerCutOff") {
-			light->OuterCutOff() = ::atof(attrib->value());
-		}
-		else if (attribName == "range") {
-			light->Range() = ::atof(attrib->value());
-		}
+
+
+		//else if (attribName == "cutOff") {
+		//	light->CutOff() = ::atof(attrib->value());
+		//}
+		//else if (attribName == "outerCutOff") {
+		//	light->OuterCutOff() = ::atof(attrib->value());
+		//}
+		//else if (attribName == "range") {
+		//	light->Range() = ::atof(attrib->value());
+		//}
 	}
 
 	return light;
@@ -437,7 +442,6 @@ Camera* AbstractGame::_convertCamera(rapidxml::xml_node<>* pXmlNode, GameObject*
 }
 
 void AbstractGame::AddBehaviourFromString(GameObject* gameObject, std::string n) {
-
 	// Imagine not being able to build a switch statment on strings
 	if (n == "ROTATECLOCKWISE")
 		gameObject->addBehaviour(new RotatingBehaviour());

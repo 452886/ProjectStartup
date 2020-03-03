@@ -1,5 +1,6 @@
 #include "mge/core/Light.hpp"
 #include "mge/core/World.hpp"
+#include "SFML/Window/Keyboard.hpp"
 
 Light::Light(const std::string& pName, const LightType type, const glm::vec3& aPosition) :GameObject(pName, aPosition), _lightType(type)
 {

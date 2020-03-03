@@ -21,10 +21,10 @@ void KeysBehaviour::update( float pStep )
 	glm::vec3 directionVector = glm::vec3(0, 0, 0);
 
 	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::W )) {
-		directionVector += glm::vec3(0, 0, -1);
+		directionVector += glm::vec3(0, 0, 1);
 	}
 	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::S )) {
-		directionVector += glm::vec3(0, 0, 1);
+		directionVector += glm::vec3(0, 0, -1);
 	}
 	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::D )) {
 		directionVector += glm::vec3(1, 0, 0);

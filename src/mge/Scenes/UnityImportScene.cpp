@@ -57,9 +57,6 @@ int framespast;
 void UnityImportScene::_initializeScene()
 {    
 
-	Light* dirLight = new Light("dir light", LightType::DIRECTION);
-	_world->add(dirLight);
-
     //SCENE SETUP
     
     //Default template is char
@@ -76,6 +73,9 @@ void UnityImportScene::_initializeScene()
 
 void UnityImportScene::_render() {
     AbstractGame::_render();
+
+	//std::cout << _world->getLightAt(0)->GetType() << std::endl;
+
     _updateHud();
 }
 
