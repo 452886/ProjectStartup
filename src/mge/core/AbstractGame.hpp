@@ -20,6 +20,9 @@
 
 #include "mge/core/Mesh.hpp"
 
+#include"mge/nodegraph/Node.hpp"
+#include"mge/nodegraph/Nodegraph.hpp"
+
 class World;
 class Renderer;
 
@@ -74,10 +77,14 @@ class AbstractGame
 		// Load gameobjects from unity export
 		void _processChildren(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		void _processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
+        void _processLevelData(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		GameObject* _convertGameObject(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		Light* _convertLight(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		Camera* _convertCamera(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
+        Nodegraph* _convertNodegraph(rapidxml::xml_node<>* pXmlNode, Nodegraph* pNodeGraph);
+        void _convertNode(rapidxml::xml_node<>* pXmlNode, Nodegraph* pNodeGraph);
 
+        Nodegraph* nodeGraph;
 
 
     private:

@@ -197,6 +197,8 @@
     <ClInclude Include="..\src\mge\materials\MaterialLib.hpp" />
     <ClInclude Include="..\src\mge\materials\TextureMaterial.hpp" />
     <ClInclude Include="..\src\mge\MGEDemo.hpp" />
+    <ClInclude Include="..\src\mge\nodegraph\Node.hpp" />
+    <ClInclude Include="..\src\mge\nodegraph\Nodegraph.hpp" />
     <ClInclude Include="..\src\mge\Scenes\LightingExample.hpp" />
     <ClInclude Include="..\src\mge\Scenes\UnityImportScene.hpp" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
@@ -227,6 +229,8 @@
     <ClCompile Include="..\src\mge\materials\MaterialLib.cpp" />
     <ClCompile Include="..\src\mge\materials\TextureMaterial.cpp" />
     <ClCompile Include="..\src\mge\MGEDemo.cpp" />
+    <ClCompile Include="..\src\mge\nodegraph\Node.cpp" />
+    <ClCompile Include="..\src\mge\nodegraph\Nodegraph.cpp" />
     <ClCompile Include="..\src\mge\Scenes\LightingExample.cpp" />
     <ClCompile Include="..\src\mge\Scenes\UnityImportScene.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />

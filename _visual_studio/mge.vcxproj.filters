@@ -26,6 +26,9 @@
     <Filter Include="MGE Source files\mge\lights">
       <UniqueIdentifier>{131de30f-a1ad-4051-9e39-49226792e9fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\nodegraph">
+      <UniqueIdentifier>{3ed41303-5427-4345-86a5-dcfb62177d05}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -109,11 +112,11 @@
     <ClInclude Include="..\src\mge\behaviours\HoverBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\behaviours\BackgroundMusicBehaviour.hpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
+    <ClInclude Include="..\src\mge\nodegraph\Node.hpp">
+      <Filter>MGE Source files\mge\nodegraph</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mge\core\GameHud.hpp">
-      <Filter>MGE Source files\mge\core</Filter>
+    <ClInclude Include="..\src\mge\nodegraph\Nodegraph.hpp">
+      <Filter>MGE Source files\mge\nodegraph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -195,11 +198,11 @@
     <ClCompile Include="..\src\mge\behaviours\HoverBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\behaviours\BackgroundMusicBehaviour.cpp">
-      <Filter>MGE Source files\mge\behaviours</Filter>
+    <ClCompile Include="..\src\mge\nodegraph\Node.cpp">
+      <Filter>MGE Source files\mge\nodegraph</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mge\core\GameHud.cpp">
-      <Filter>MGE Source files\mge\core</Filter>
+    <ClCompile Include="..\src\mge\nodegraph\Nodegraph.cpp">
+      <Filter>MGE Source files\mge\nodegraph</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
