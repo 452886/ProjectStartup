@@ -29,6 +29,9 @@
     <Filter Include="MGE Source files\mge\nodegraph">
       <UniqueIdentifier>{3ed41303-5427-4345-86a5-dcfb62177d05}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\mge\actors">
+      <UniqueIdentifier>{4ebf214b-8287-4202-a51d-10e7bcea500e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -118,6 +121,14 @@
     <ClInclude Include="..\src\mge\nodegraph\Nodegraph.hpp">
       <Filter>MGE Source files\mge\nodegraph</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\BackgroundMusicBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\core\GameHud.hpp" />
+    <ClInclude Include="..\src\mge\actors\Player.hpp">
+      <Filter>MGE Source files\mge\actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.hpp">
+      <Filter>MGE Source files\mge\actors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -203,6 +214,18 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\nodegraph\Nodegraph.cpp">
       <Filter>MGE Source files\mge\nodegraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\BackgroundMusicBehaviour.cpp">
+      <Filter>MGE Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\core\GameHud.cpp">
+      <Filter>MGE Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\actors\Player.cpp">
+      <Filter>MGE Source files\mge\actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>MGE Source files\mge\actors</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
