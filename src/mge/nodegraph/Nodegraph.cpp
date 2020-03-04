@@ -10,16 +10,19 @@
 
 Nodegraph::Nodegraph()
 {
+
 }
 
-void Nodegraph::SetNodeArray2D(std::vector<std::vector<sf::Vector2i>> nodeArray2D)
+void Nodegraph::addNode(std::string cords)
 {
-	this->nodeArray2D = &nodeArray2D;
+	nodes.push_back(cords);
 }
 
-void Nodegraph::CreateNode(sf::Vector2i position)
+bool Nodegraph::isWalkable(std::string cords)
 {
-	nodeArray2D[position.x][position.y].push_back(position);
-
-	std::cout << "x: " << position.x << " y: " << position.y << std::endl; 
+	if (std::find(nodes.begin(), nodes.end(), cords) != nodes.end())
+		return false;
+	else
+		return true;
 }
+

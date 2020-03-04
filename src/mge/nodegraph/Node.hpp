@@ -7,6 +7,7 @@
 class Node
 {
 public:
-	Node(sf::Vector2i pPosition);
+	Node();
 	sf::Vector2i Position;
+	bool isActive;
 };

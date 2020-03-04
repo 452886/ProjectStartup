@@ -80,8 +80,8 @@ class AbstractGame
 		GameObject* _convertGameObject(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		Light* _convertLight(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		Camera* _convertCamera(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
-        Nodegraph* _convertNodegraph(rapidxml::xml_node<>* pXmlNode);
-        Node* _convertNode(rapidxml::xml_node<>* pXmlNode);
+        Nodegraph* _convertNodegraph(rapidxml::xml_node<>* pXmlNode, Nodegraph* pNodeGraph);
+        void _convertNode(rapidxml::xml_node<>* pXmlNode, Nodegraph* pNodeGraph);
 
         Nodegraph* nodeGraph;
 

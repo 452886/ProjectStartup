@@ -180,9 +180,6 @@ void AbstractGame::_processEvents()
 
 void AbstractGame::_processLevelData(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
 {
-	//_convertNodegraph(pXmlNode);
-
-
 	_processChildren(pXmlNode, pGameObjectNode);
 }
 
@@ -196,13 +193,13 @@ void AbstractGame::_processChildren(rapidxml::xml_node<>* pXmlNode, GameObject* 
 
 void AbstractGame::_processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
 {
-	Nodegraph* ng = nullptr;
-	std::vector<std::vector<sf::Vector2i>> nodeArray2D(0);
+	if (strcmp(pXmlNode->name(), "NodeGraph") == 0) {
+		nodeGraph = new Nodegraph();
+		_convertNodegraph(pXmlNode, nodeGraph);
 
-
-	ng = new Nodegraph();
-	ng->SetNodeArray2D(nodeArray2D);
-
+		return;
+	}
+	
 
 	GameObject* currentNode = pGameObjectNode;
 
@@ -228,11 +225,6 @@ void AbstractGame::_processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pG
 		_world->setMainCamera(newNode);
 		std::cout << newNode->getName() << " added to " << currentNode->getName() << std::endl;
 		currentNode = newNode;
-	}
-	else if (strcmp(pXmlNode->name(), "Node") == 0) 
-	{
-		Node* newNode = _convertNode(pXmlNode);
-		ng->CreateNode(newNode->Position);
 	}
 
 	_processChildren(pXmlNode, currentNode);
@@ -457,52 +449,22 @@ Camera* AbstractGame::_convertCamera(rapidxml::xml_node<>* pXmlNode, GameObject*
 	}
 	return camera;
 }
-Nodegraph* AbstractGame::_convertNodegraph(rapidxml::xml_node<>* pXmlNode)
+Nodegraph* AbstractGame::_convertNodegraph(rapidxml::xml_node<>* pXmlNode, Nodegraph* pNodeGraph)
 {
-	std::cout << "1 reached :3" << std::endl;
-	Nodegraph* ng = nullptr;
-
-	if (strcmp(pXmlNode->name(), "NodeGraph") == 0) {
-
-		std::cout << "2 reached :3" << std::endl;
-
-		std::vector<std::vector<sf::Vector2i>> nodeArray2D;
-
-		ng = new Nodegraph();
-		ng->SetNodeArray2D(nodeArray2D);
-
-		for (rapidxml::xml_node<>* child = pXmlNode->first_node(); child != NULL; child = child->next_sibling())
-		{
-			Node* node = _convertNode(child);
-
-			ng->CreateNode(node->Position);
-		}
+	for (rapidxml::xml_node<>* child = pXmlNode->first_node(); child != NULL; child = child->next_sibling())
+	{
+		_convertNode(child,pNodeGraph);
 	}
 
-	//for (rapidxml::xml_attribute<>* attrib = pXmlNode->first_attribute();
-	//	attrib != NULL;
-	//	attrib = attrib->next_attribute()
-	//	)
-	//{
-	//	std::cout << "2 reached :3" << std::endl;
-	//	std::string attribName = attrib->name();
-	//	if (attribName == "NodeGraph") {
-	//		for (rapidxml::xml_node<>* child = pXmlNode->first_node(); child != NULL; child = child->next_sibling())
-	//		{
-	//			Node* node = _convertNode(child);
-
-	//			ng->CreateNode(node->Position);
-	//		}
-	//	}
-	//}
-
-	return ng;
+	return pNodeGraph;
 }
 
-Node* AbstractGame::_convertNode(rapidxml::xml_node<>* pXmlNode)
+void AbstractGame::_convertNode(rapidxml::xml_node<>* pXmlNode, Nodegraph* pNodeGraph)
 {
-	int x;
-	int y;
+	Node* node = new Node();
+
+	string x = "-1";
+	string y = "-1";
 
 	for (rapidxml::xml_attribute<>* attrib = pXmlNode->first_attribute();
 		attrib != NULL;
@@ -512,15 +474,17 @@ Node* AbstractGame::_convertNode(rapidxml::xml_node<>* pXmlNode)
 		std::cout << attrib->name() << "=" << attrib->value() << std::endl;
 		std::string attribName = attrib->name();
 
+		//process code...
 		if (attribName == "x") {
-			x = (int)attrib->value();
+			x = attrib->value();
 		}
 		else if (attribName == "y") {
-			y = (int)attrib->value();
+			y = attrib->value();
+
 		}
 	}
-	Node* node = new Node(sf::Vector2i(x, y));
-	return node;
+
+	pNodeGraph->addNode(x + "," + y);
 }
 
 void AbstractGame::AddBehaviourFromString(GameObject* gameObject, std::string n) {

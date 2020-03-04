@@ -3,7 +3,7 @@
 #include "SFML/Graphics.hpp";
 #include "Node.hpp";
 
-Node::Node(sf::Vector2i pPosition)
+Node::Node() : Position(sf::Vector2i(0, 0)), isActive(true)
 {
-	Position = pPosition;
+
 }

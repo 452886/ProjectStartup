@@ -83,6 +83,11 @@ void UnityImportScene::_updateHud() {
     std::string debugInfo = "";
     debugInfo += std::string("FPS:") + std::to_string((int)_fps) + "\n";
 
+	if (nodeGraph->isWalkable("-1,99"))
+		std::cout << "false" << std::endl;
+	else
+		std::cout << "true" << std::endl;
+
     _hud->setDebugInfo(debugInfo);
     _hud->draw();
 }
