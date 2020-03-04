@@ -44,6 +44,8 @@ void UnityImportScene::initialize() {
     std::cout << "Initializing HUD" << std::endl;
     _hud = new DebugHud(_window);
     std::cout << "HUD initialized." << std::endl << std::endl;
+
+	_gameHud = new GameHud(_window);
 }
 
 GameObject* cube;
@@ -80,11 +82,13 @@ void UnityImportScene::_render() {
 }
 
 void UnityImportScene::_updateHud() {
-    std::string debugInfo = "";
-    debugInfo += std::string("FPS:") + std::to_string((int)_fps) + "\n";
+    //std::string debugInfo = "";
+    //debugInfo += std::string("FPS:") + std::to_string((int)_fps) + "\n";
 
-    _hud->setDebugInfo(debugInfo);
-    _hud->draw();
+    //_hud->setDebugInfo(debugInfo);
+    //_hud->draw();
+
+	_gameHud->draw();
 }
 
 

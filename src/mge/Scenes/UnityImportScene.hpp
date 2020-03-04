@@ -29,6 +29,7 @@ protected:
 
 private:
 	DebugHud* _hud;                   //hud display
+	GameHud* _gameHud;
 
 	void _updateHud();
 

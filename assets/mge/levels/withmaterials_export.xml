@@ -1,93 +1,105 @@
 <root>
   <GameObject name="Enemies" position="(-0.5441426, -8.995133, 13.70228)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)">
-    <GameObject name="EnemyCilindrical" position="(-0.818, 8.995133, -15.32)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)" mesh="EnemyCilindrical.obj" material="EnemyCylindirical" />
-    <GameObject name="EnemySquared" position="(0.65, 8.995133, -15.3)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)" mesh="EnemySquared.obj" material="EnemySquared" />
-    <GameObject name="EnemyRound" position="(2.184649, 8.995133, -15.24357)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)" mesh="EnemyRound.obj" material="EnemyRound" />
+    <GameObject name="EnemySquared" position="(-0.07, 8.995133, -29.71)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)" mesh="EnemySquared.obj" material="EnemySquared" />
+    <GameObject name="EnemyRound" position="(2.01, 8.995133, -26.04)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)" mesh="EnemyRound.obj" material="EnemyRound" />
   </GameObject>
-  <GameObject name="Chip" position="(-0.7890948, -6.279449, -11.08689)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)">
-    <GameObject name="Chip_Base" position="(0.7190948, 6.279449, 11.75689)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-      <GameObject name="Chip_Base" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Base.obj" material="BlueChipBase" />
+  <GameObject name="Assets" position="(-21.6, -24.71362, -101.1)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)">
+    <GameObject name="Chip" position="(19.43206, 18.43417, 19.15872)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)">
+      <GameObject name="Chip_Base" position="(0.7190948, 6.279449, 11.75689)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+        <GameObject name="Chip_Base" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Base.obj" material="BlueChipBase" />
+      </GameObject>
+      <GameObject name="Chip_Middle" position="(0.7280948, 6.279449, 11.81589)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+        <GameObject name="Chip_Middle" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Middle.obj" material="BlueChipMiddlePart" />
+      </GameObject>
+      <GameObject name="Chip_RightUp" position="(0.5170948, 6.835449, 11.75789)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+        <GameObject name="Chip_RightUp" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_RightUp.obj" material="BlueChipCorner" />
+      </GameObject>
     </GameObject>
-    <GameObject name="Chip_Middle" position="(0.7280948, 6.279449, 11.81589)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-      <GameObject name="Chip_Middle" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Middle.obj" material="BlueChipMiddlePart" />
+    <GameObject name="Chip (1)" position="(18.20115, 18.43417, 19.15872)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)">
+      <GameObject name="Chip_Base" position="(0.7190948, 6.279449, 11.75689)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+        <GameObject name="Chip_Base" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Base.obj" material="GreenChipBase" />
+      </GameObject>
+      <GameObject name="Chip_Middle" position="(0.7280948, 6.279449, 11.81589)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+        <GameObject name="Chip_Middle" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Middle.obj" material="GreenChipMiddlePart" />
+      </GameObject>
+      <GameObject name="Chip_RightUp" position="(0.5170948, 6.835449, 11.75789)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+        <GameObject name="Chip_RightUp" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_RightUp.obj" material="GreenChipCorner" />
+      </GameObject>
     </GameObject>
-    <GameObject name="Chip_RightUp" position="(0.5170948, 6.835449, 11.75789)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-      <GameObject name="Chip_RightUp" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_RightUp.obj" material="BlueChipCorner" />
+    <GameObject name="Chip (2)" position="(20.72116, 18.43417, 19.15872)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)">
+      <GameObject name="Chip_Base" position="(0.7190948, 6.279449, 11.75689)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+        <GameObject name="Chip_Base" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Base.obj" material="RedChipBase" />
+      </GameObject>
+      <GameObject name="Chip_Middle" position="(0.7280948, 6.279449, 11.81589)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+        <GameObject name="Chip_Middle" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Middle.obj" material="RedChipMiddlePart" />
+      </GameObject>
+      <GameObject name="Chip_RightUp" position="(0.5170948, 6.835449, 11.75789)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+        <GameObject name="Chip_RightUp" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_RightUp.obj" material="RedChipCorner" />
+      </GameObject>
+    </GameObject>
+    <GameObject name="Sign" position="(13.54115, 24.71362, 31.52561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Sign1" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Sign1.obj" />
+    </GameObject>
+    <GameObject name="SignWall" position="(21.03115, 24.71362, 27.12561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="BasicWall1" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="BasicWall1.obj" material="Wall" />
+      <GameObject name="Sign1" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Sign1.obj" />
+    </GameObject>
+    <GameObject name="Tr_BendPipe" position="(11.52116, 24.71362, 31.43561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_BendPipe" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_BendPipe.obj" material="BendPipe" />
+    </GameObject>
+    <GameObject name="Tr_BigWindow" position="(11.33115, 24.71362, 27.08561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_BigWindow" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_BigWindow.obj" material="BigWindowWall" />
+    </GameObject>
+    <GameObject name="Tr_Conveyer" position="(15.16116, 24.71362, 30.03561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_Conveyer" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_Conveyer.obj" material="ConveyerBelt" />
+    </GameObject>
+    <GameObject name="Tr_DoorLeft" position="(23.84116, 24.71362, 30.63561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_DoorLeft" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_DoorLeft.obj" material="SlidingDoorLeft" />
+    </GameObject>
+    <GameObject name="Tr_DoorRight" position="(24.66116, 24.71362, 29.69561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_DoorRight" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_DoorRight.obj" material="SlidingDoorRight" />
+    </GameObject>
+    <GameObject name="Tr_HorizontalPipe" position="(15.35116, 24.71362, 31.68561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_HorizontalPipe" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_HorizontalPipe.obj" material="HorizontalPipe" />
+    </GameObject>
+    <GameObject name="Tr_NormalDoor" position="(11.11116, 24.71362, 29.15561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_NormalDoor" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_NormalDoor.obj" material="Door" />
+    </GameObject>
+    <GameObject name="Tr_SmallWindow" position="(24.35115, 24.71362, 27.15561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_SmallWindow" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_SmallWindow.obj" material="SmallWindowWall" />
+    </GameObject>
+    <GameObject name="Tr_VerticalPipe" position="(17.65116, 24.71362, 32.31561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_VerticalPipe" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_VerticalPipe.obj" material="VerticalPipe" />
+    </GameObject>
+    <GameObject name="Tr_Wall" position="(14.58116, 24.71362, 27.06561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_Wall" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_Wall.obj" material="Wall" />
+    </GameObject>
+    <GameObject name="LeftPillar" position="(6.191155, 24.71362, 25.14561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="LeftPillar" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="LeftPillar.obj" material="LeftPillar" />
+    </GameObject>
+    <GameObject name="MiddlePillar" position="(6.601155, 24.71362, 25.13561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="MiddlePillar" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="MiddlePillar.obj" material="MiddlePillar" />
+    </GameObject>
+    <GameObject name="RightPillar" position="(7.001155, 24.71362, 24.90561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="RightPillar" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="RightPillar.obj" material="MiddlePillar" />
+    </GameObject>
+    <GameObject name="BackgroundMusic" position="(20.00028, 21.10773, 21.72346)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" behaviours="BACKGROUNDMUSIC" />
+    <GameObject name="Tr_Wall (1)" position="(17.84116, 24.71362, 27.06561)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+      <GameObject name="Tr_Wall" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_Wall.obj" material="Wall" />
     </GameObject>
   </GameObject>
-  <GameObject name="Chip (1)" position="(-2.02, -6.279449, -11.08689)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)">
-    <GameObject name="Chip_Base" position="(0.7190948, 6.279449, 11.75689)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-      <GameObject name="Chip_Base" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Base.obj" material="GreenChipBase" />
-    </GameObject>
-    <GameObject name="Chip_Middle" position="(0.7280948, 6.279449, 11.81589)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-      <GameObject name="Chip_Middle" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Middle.obj" material="GreenChipMiddlePart" />
-    </GameObject>
-    <GameObject name="Chip_RightUp" position="(0.5170948, 6.835449, 11.75789)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-      <GameObject name="Chip_RightUp" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_RightUp.obj" material="GreenChipCorner" />
-    </GameObject>
-  </GameObject>
-  <GameObject name="Chip (2)" position="(0.5, -6.279449, -11.08689)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)">
-    <GameObject name="Chip_Base" position="(0.7190948, 6.279449, 11.75689)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-      <GameObject name="Chip_Base" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Base.obj" material="RedChipBase" />
-    </GameObject>
-    <GameObject name="Chip_Middle" position="(0.7280948, 6.279449, 11.81589)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-      <GameObject name="Chip_Middle" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_Middle.obj" material="RedChipMiddlePart" />
-    </GameObject>
-    <GameObject name="Chip_RightUp" position="(0.5170948, 6.835449, 11.75789)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-      <GameObject name="Chip_RightUp" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Chip_RightUp.obj" material="RedChipCorner" />
-    </GameObject>
-  </GameObject>
-  <GameObject name="LeftPillar" position="(-13.54, 0, -3.55)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="PillarPipeLeft1" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="PillarPipeLeft1.obj" material="LeftPillar" />
-  </GameObject>
-  <GameObject name="MiddlePillar" position="(-13.54, 0, -3.55)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Pillar1" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Pillar1.obj" material="MiddlePillar" />
-  </GameObject>
-  <GameObject name="RightPillar" position="(-13.54, 0, -3.55)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="PillarPipeRight1" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="PillarPipeRight1.obj" material="LeftPillar" />
-  </GameObject>
-  <GameObject name="Sign" position="(-6.68, 0, 1.28)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Sign1" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Sign1.obj" />
-  </GameObject>
-  <GameObject name="SignWall" position="(0.81, 0, -3.12)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="BasicWall1" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="BasicWall1.obj" material="Wall" />
-    <GameObject name="Sign1" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Sign1.obj" />
-  </GameObject>
-  <GameObject name="Tr_BendPipe" position="(-8.7, 0, 1.19)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Tr_BendPipe" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_BendPipe.obj" material="BendPipe" />
-  </GameObject>
-  <GameObject name="Tr_BigWindow" position="(-8.89, 0, -3.16)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Tr_BigWindow" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_BigWindow.obj" material="BigWindowWall" />
-  </GameObject>
-  <GameObject name="Tr_Conveyer" position="(-5.06, 0, -0.21)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Tr_Conveyer" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_Conveyer.obj" material="ConveyerBelt" />
-  </GameObject>
-  <GameObject name="Tr_DoorLeft" position="(3.62, 0, 0.39)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Tr_DoorLeft" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_DoorLeft.obj" material="SlidingDoorLeft" />
-  </GameObject>
-  <GameObject name="Tr_DoorRight" position="(4.44, 0, -0.55)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Tr_DoorRight" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_DoorRight.obj" material="SlidingDoorRight" />
-  </GameObject>
-  <GameObject name="Tr_HorizontalPipe" position="(-4.87, 0, 1.44)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Tr_HorizontalPipe" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_HorizontalPipe.obj" material="HorizontalPipe" />
-  </GameObject>
-  <GameObject name="Tr_NormalDoor" position="(-9.11, 0, -1.09)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Tr_NormalDoor" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_NormalDoor.obj" material="Door" />
-  </GameObject>
-  <GameObject name="Tr_SmallWindow" position="(4.13, 0, -3.09)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Tr_SmallWindow" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_SmallWindow.obj" material="SmallWindowWall" />
-  </GameObject>
-  <GameObject name="Tr_VerticalPipe" position="(-2.57, 0, 2.07)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Tr_VerticalPipe" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_VerticalPipe.obj" material="VerticalPipe" />
-  </GameObject>
-  <GameObject name="Tr_Wall" position="(-5.64, 0, -3.18)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="Tr_Wall" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_Wall.obj" material="Wall" />
-  </GameObject>
-  <GameObject name="Wall" position="(-2.34, 0, -3.19)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
-    <GameObject name="BasicWall1" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="BasicWall1.obj" material="Wall" />
-  </GameObject>
-  <Light name="Spot Light" position="(0, 1, 3)" rotation="(1.0, 0.0, 0.0, 0.0)" scale="(1, 1, 1)" behaviours="KEYMOVEMEND" type="Spot" ambient="(1, 1, 1)" diffuse="(1, 1, 1)" cutOff="21.80208" outerCutOff="30" range="10">
+  <Light name="PlayerView" position="(0, 1, 3)" rotation="(1.0, 0.0, 0.0, 0.0)" scale="(1, 1, 1)" behaviours="KEYMOVEMEND" type="Spot" diffuse="(1, 1, 1)" intensity="1" cutOff="21.80208" outerCutOff="30" range="10">
     <Camera name="MainCamera" position="(0, -1.824, -0.608)" rotation="(0.0, 0.1, 1.0, 0.0)" scale="(1, 1, 1)" FOV="60" />
   </Light>
-  <GameObject name="BackgroundMusic" position="(-0.2208705, -3.605889, -8.522153)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" behaviours="BACKGROUNDMUSIC" />
+  <Light name="Directional Light" position="(-70.1, -21.11421, -30.69085)" rotation="(0.4, 0.2, -0.1, 0.9)" scale="(1, 1, 1)" type="Directional" diffuse="(1, 1, 1)" intensity="0.5" cutOff="21.80208" outerCutOff="30" range="10" />
+  <GameObject name="Tr_Wall (2)" position="(-8.83, 0, 13.38)" rotation="(-0.7, 0.0, 0.0, 0.7)" scale="(0.1, 0.1, 0.1)">
+    <GameObject name="Tr_Wall" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_Wall.obj" material="Wall" />
+  </GameObject>
+  <GameObject name="RotatePoint" position="(0.001, 0.999, -0.2398063)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" behaviours="ROTATECLOCKWISE">
+    <GameObject name="EnemyCilindrical" position="(0, -0.8972016, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.009999998, 0.009999998)" mesh="EnemyCilindrical.obj" material="EnemyCylindirical" />
+    <Light name="Spot Light" position="(-0.001, 0.33, 0.4058063)" rotation="(0.1, -0.7, 0.1, 0.7)" scale="(1, 1, 1)" type="Spot" diffuse="(0, 0.00810373, 0.9529412)" intensity="20" cutOff="21.80208" outerCutOff="30" range="10" />
+    <Light name="Spot Light (1)" position="(-0.001, 0.33, 0.4058063)" rotation="(0.3, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" type="Spot" diffuse="(0, 0.9529412, 0.0252393)" intensity="20" cutOff="21.80208" outerCutOff="30" range="10" />
+    <Light name="Spot Light (2)" position="(-0.001, 0.33, 0.4058063)" rotation="(0.0, 1.0, -0.1, 0.0)" scale="(1, 1, 1)" type="Spot" diffuse="(0.9529412, 0.8881857, 0)" intensity="20" cutOff="21.80208" outerCutOff="30" range="10" />
+    <Light name="Spot Light (3)" position="(-0.001, 0.33, 0.4058063)" rotation="(0.1, 0.7, -0.1, 0.7)" scale="(1, 1, 1)" type="Spot" diffuse="(0.9528302, 0, 0)" intensity="20" cutOff="21.80208" outerCutOff="30" range="10" />
+  </GameObject>
 </root>

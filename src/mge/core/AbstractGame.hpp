@@ -6,6 +6,7 @@
 #include <string>
 
 #include "mge/util/HelperMethods.hpp"
+#include "mge/core/GameHud.hpp"
 #include <algorithm>
 
 #include <rapidxml-1.13/rapidxml.hpp>

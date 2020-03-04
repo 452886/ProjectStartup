@@ -109,6 +109,7 @@ void AbstractGame::run()
 		{
             glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
+
 		    while (timeSinceLastUpdate > timePerFrame) {
                 timeSinceLastUpdate -= timePerFrame;
                 _update(timePerFrame.asSeconds());
@@ -362,8 +363,9 @@ Light* AbstractGame::_convertLight(rapidxml::xml_node<>* pXmlNode, GameObject* p
 			sscanf(attrib->value(), "(%f, %f, %f)", &diffuse.x, &diffuse.y, &diffuse.z);
 			light->Diffuse() = diffuse;
 		}
-
-
+		else if (attribName == "intensity") {
+			light->Intensity() = ::atof(attrib->value());
+		}
 		//else if (attribName == "cutOff") {
 		//	light->CutOff() = ::atof(attrib->value());
 		//}

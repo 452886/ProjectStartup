@@ -112,6 +112,9 @@
     <ClInclude Include="..\src\mge\behaviours\BackgroundMusicBehaviour.hpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\core\GameHud.hpp">
+      <Filter>MGE Source files\mge\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -194,6 +197,9 @@
     </ClCompile>
     <ClCompile Include="..\src\mge\behaviours\BackgroundMusicBehaviour.cpp">
       <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\core\GameHud.cpp">
+      <Filter>MGE Source files\mge\core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

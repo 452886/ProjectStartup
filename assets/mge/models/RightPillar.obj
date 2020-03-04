@@ -571,7 +571,7 @@ vn -0.810479 -0.005802 0.585738
 vn -0.860886 -0.002448 0.508791
 vn -0.809146 -0.005884 0.587578
 s 1
-g PillarPipeRight1
+g RightPillar
 usemtl initialShadingGroup
 f 57/67/1 58/66/2 2/82/3
 f 2/82/3 58/66/2 8/81/4

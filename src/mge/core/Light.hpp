@@ -37,7 +37,7 @@ public:
 	float& Linear() & { return _linear; };
 	float& Quadratic() & { return _quadratic; };
 	float& Range() { return _range; };
-
+	float& Intensity() { return _intensity; };
 
 	glm::vec3& LDirection() { return _direction; };
 
@@ -49,7 +49,7 @@ protected:
 
 private:
 	// Basic lighting properties
-	glm::vec3 _ambient = glm::vec3(1, 1, 1);
+	glm::vec3 _ambient = glm::vec3(0.05f, 0.05f, 0.05f);
 	glm::vec3 _diffuse = glm::vec3(1, 1, 1);
 	glm::vec3 _specular = glm::vec3(1, 1, 1);
 
@@ -58,6 +58,7 @@ private:
 	float _linear = 0.09f;
 	float _quadratic = 0.032f;
 	float _range = 1.0f;
+	float _intensity = 1.0f;
 
 	glm::vec3 _direction = glm::vec3(0, 0, 1);
 

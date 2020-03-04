@@ -1,0 +1,11 @@
+<root>
+  <Camera name="Main Camera" position="(4.36, 1.88, -2.69)" rotation="(0.1, -0.7, 0.1, 0.7)" scale="(1, 1, 1)" FOV="60" />
+  <GameObject name="Tr_Wall" position="(-14.78, 0, 6.52)" rotation="(-0.7, 0.0, 0.0, 0.7)" scale="(0.1, 0.1, 0.1)">
+    <GameObject name="Tr_Wall" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="Tr_Wall.obj" material="Wall" />
+  </GameObject>
+  <GameObject name="EnemyCilindrical" position="(0, 0.621, -1.334486)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(0.01, 0.01, 0.01)">
+    <GameObject name="EnemyCilindrical" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="EnemyCilindrical.obj" />
+    <Light name="Spot Light" position="(0, 0, 0)" rotation="(1.0, 0.0, 0.0, 0.1)" scale="(100, 100.0001, 100.0001)" type="Spot" ambient="(10, 10, 10)" diffuse="(1, 0, 0)" cutOff="21.80208" outerCutOff="30" range="10" />
+  </GameObject>
+  <Light name="Directional Light" position="(-20.83681, 2.44, -31.03557)" rotation="(0.4, 0.2, -0.1, 0.9)" scale="(1, 1, 1)" type="Directional" ambient="(0.2, 0.2, 0.2)" diffuse="(1, 1, 1)" cutOff="21.80208" outerCutOff="30" range="10" />
+</root>

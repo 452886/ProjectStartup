@@ -15,6 +15,8 @@ class BackgroundMusicBehaviour : public AbstractBehaviour
 
 	private:
 		sf::SoundBuffer buffer;
+		sf::SoundBuffer buffer2;
+		sf::SoundBuffer buffer3;
 		sf::Sound sound;
 };
 
