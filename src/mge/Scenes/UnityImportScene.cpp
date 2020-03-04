@@ -37,13 +37,13 @@ UnityImportScene::UnityImportScene() :AbstractGame(), _hud(0)
 }
 
 void UnityImportScene::initialize() {
-    //setup the core part
-    AbstractGame::initialize();
+	//setup the core part
+	AbstractGame::initialize();
 
-    //setup the custom part so we can display some text
-    std::cout << "Initializing HUD" << std::endl;
-    _hud = new DebugHud(_window);
-    std::cout << "HUD initialized." << std::endl << std::endl;
+	//setup the custom part so we can display some text
+	std::cout << "Initializing HUD" << std::endl;
+	_hud = new DebugHud(_window);
+	std::cout << "HUD initialized." << std::endl << std::endl;
 }
 
 
@@ -57,43 +57,38 @@ int framespast;
 //build the game _world
 void UnityImportScene::_initializeScene()
 {
-    Mesh* cubeMeshF = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
+	Mesh* cubeMeshF = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
 	AbstractMaterial* boxmaterial = _world->matLib->getMaterial("box");
-    
-    //SCENE SETUP
-    
-    //Default template is char
-    rapidxml::file<> xmlFile("mge/levels/obstaclePainter_export.xml");
-    rapidxml::xml_document<> doc;
-    //0 means default flags, parse the cr.p out of it
-    doc.parse<0>(xmlFile.data());
 
-    // Find our root node and send it off for further processing
-    rapidxml::xml_node<>* root_node = doc.first_node("root");
+	//SCENE SETUP
 
-    _processLevelData(root_node, _world);
+	//Default template is char
+	rapidxml::file<> xmlFile("mge/levels/obstaclePainter_export.xml");
+	rapidxml::xml_document<> doc;
+	//0 means default flags, parse the cr.p out of it
+	doc.parse<0>(xmlFile.data());
+
+	// Find our root node and send it off for further processing
+	rapidxml::xml_node<>* root_node = doc.first_node("root");
+
+	_processLevelData(root_node, _world);
 }
 
 void UnityImportScene::_render() {
-    AbstractGame::_render();
-    _updateHud();
+	AbstractGame::_render();
+	_updateHud();
 }
 
 void UnityImportScene::_updateHud() {
-    std::string debugInfo = "";
-    debugInfo += std::string("FPS:") + std::to_string((int)_fps) + "\n";
+	std::string debugInfo = "";
+	debugInfo += std::string("FPS:") + std::to_string((int)_fps) + "\n";
 
-	if (nodeGraph->isWalkable("-1,99"))
-		std::cout << "false" << std::endl;
-	else
-		std::cout << "true" << std::endl;
-
-    _hud->setDebugInfo(debugInfo);
-    _hud->draw();
+	_hud->setDebugInfo(debugInfo);
+	_hud->draw();
 }
 
 
 UnityImportScene::~UnityImportScene()
 {
-    //dtor
+	//dtor
 }
