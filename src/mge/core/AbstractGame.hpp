@@ -76,12 +76,14 @@ class AbstractGame
 		// Load gameobjects from unity export
 		void _processChildren(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		void _processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
+        void _processLevelData(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		GameObject* _convertGameObject(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		Light* _convertLight(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
 		Camera* _convertCamera(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode);
         Nodegraph* _convertNodegraph(rapidxml::xml_node<>* pXmlNode);
         Node* _convertNode(rapidxml::xml_node<>* pXmlNode);
 
+        Nodegraph* nodeGraph;
 
 
     private:

@@ -1,0 +1,117 @@
+<root>
+  <NodeGraph width="10" heigth="10">
+    <Node number="1" x="0" y="0" />
+    <Node number="2" x="0" y="1" />
+    <Node number="3" x="0" y="2" />
+    <Node number="4" x="0" y="3" />
+    <Node number="5" x="0" y="4" />
+    <Node number="6" x="0" y="5" />
+    <Node number="7" x="0" y="6" />
+    <Node number="8" x="0" y="7" />
+    <Node number="9" x="0" y="8" />
+    <Node number="10" x="0" y="9" />
+    <Node number="11" x="1" y="0" />
+    <Node number="12" x="1" y="1" />
+    <Node number="13" x="1" y="2" />
+    <Node number="14" x="1" y="3" />
+    <Node number="15" x="1" y="4" />
+    <Node number="16" x="1" y="5" />
+    <Node number="17" x="1" y="6" />
+    <Node number="18" x="1" y="7" />
+    <Node number="19" x="1" y="8" />
+    <Node number="20" x="1" y="9" />
+    <Node number="21" x="2" y="0" />
+    <Node number="22" x="2" y="1" />
+    <Node number="23" x="2" y="3" />
+    <Node number="24" x="2" y="4" />
+    <Node number="25" x="2" y="5" />
+    <Node number="26" x="2" y="6" />
+    <Node number="27" x="2" y="7" />
+    <Node number="28" x="2" y="8" />
+    <Node number="29" x="2" y="9" />
+    <Node number="30" x="3" y="0" />
+    <Node number="31" x="3" y="1" />
+    <Node number="32" x="3" y="3" />
+    <Node number="33" x="3" y="4" />
+    <Node number="34" x="3" y="5" />
+    <Node number="35" x="3" y="6" />
+    <Node number="36" x="3" y="7" />
+    <Node number="37" x="3" y="8" />
+    <Node number="38" x="3" y="9" />
+    <Node number="39" x="4" y="0" />
+    <Node number="40" x="4" y="1" />
+    <Node number="41" x="4" y="3" />
+    <Node number="42" x="4" y="4" />
+    <Node number="43" x="4" y="5" />
+    <Node number="44" x="4" y="6" />
+    <Node number="45" x="4" y="8" />
+    <Node number="46" x="4" y="9" />
+    <Node number="47" x="5" y="0" />
+    <Node number="48" x="5" y="1" />
+    <Node number="49" x="5" y="3" />
+    <Node number="50" x="5" y="4" />
+    <Node number="51" x="5" y="8" />
+    <Node number="52" x="5" y="9" />
+    <Node number="53" x="6" y="0" />
+    <Node number="54" x="6" y="1" />
+    <Node number="55" x="6" y="6" />
+    <Node number="56" x="6" y="7" />
+    <Node number="57" x="6" y="8" />
+    <Node number="58" x="6" y="9" />
+    <Node number="59" x="7" y="0" />
+    <Node number="60" x="7" y="1" />
+    <Node number="61" x="7" y="2" />
+    <Node number="62" x="7" y="3" />
+    <Node number="63" x="7" y="6" />
+    <Node number="64" x="7" y="7" />
+    <Node number="65" x="7" y="8" />
+    <Node number="66" x="7" y="9" />
+    <Node number="67" x="8" y="0" />
+    <Node number="68" x="8" y="1" />
+    <Node number="69" x="8" y="2" />
+    <Node number="70" x="8" y="3" />
+    <Node number="71" x="8" y="4" />
+    <Node number="72" x="8" y="5" />
+    <Node number="73" x="8" y="6" />
+    <Node number="74" x="8" y="7" />
+    <Node number="75" x="8" y="8" />
+    <Node number="76" x="8" y="9" />
+    <Node number="77" x="9" y="0" />
+    <Node number="78" x="9" y="1" />
+    <Node number="79" x="9" y="2" />
+    <Node number="80" x="9" y="3" />
+    <Node number="81" x="9" y="4" />
+    <Node number="82" x="9" y="5" />
+    <Node number="83" x="9" y="6" />
+    <Node number="84" x="9" y="7" />
+    <Node number="85" x="9" y="8" />
+    <Node number="86" x="9" y="9" />
+  </NodeGraph>
+  <Camera name="Main Camera" position="(-5, 10, 5)" rotation="(0.7, 0.0, 0.0, 0.7)" scale="(1, 1, 1)" FOV="60" />
+  <Light name="Directional Light" position="(0, 3, 0)" rotation="(0.4, 0.2, -0.1, 0.9)" scale="(1, 1, 1)" type="Directional" ambient="(1, 1, 1)" diffuse="(1, 0,9568627, 0,8392157)" cutOff="21,80208" outerCutOff="30" range="10" />
+  <GameObject name="TileIndicator" position="(-7,5, 0, 5,5)" rotation="(0.0, -0.7, 0.0, 0.7)" scale="(0,1, 1, 0,1)" mesh="TileIndicator.obj">
+    <GameObject name="NorthIndicator" position="(10, 0, 0,2)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="NorthIndicator.obj" />
+    <GameObject name="EastIndicator" position="(0, 0, 10)" rotation="(0.0, -0.7, 0.0, 0.7)" scale="(1, 1, 1)" mesh="EastIndicator.obj" />
+    <GameObject name="SouthIndicator" position="(-10, 0, 0)" rotation="(0.0, -1.0, 0.0, 0.0)" scale="(1, 1, 1)" mesh="SouthIndicator.obj" />
+    <GameObject name="WestIndicator" position="(0, 0, -10)" rotation="(0.0, 0.7, 0.0, 0.7)" scale="(1, 1, 1)" mesh="WestIndicator.obj" />
+  </GameObject>
+  <GameObject name="ObstaclePainter" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" />
+  <GameObject name="floor" position="(-5, -0,1, 5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="floor.obj" />
+  <GameObject name="EventSystem" position="(0, 0, 0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" />
+  <GameObject name="obstacle(Clone)" position="(-4,5, 0, 7,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-5,5, 0, 7,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-5,5, 0, 6,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-5,5, 0, 5,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-6,5, 0, 5,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-6,5, 0, 4,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-6,5, 0, 3,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-6,5, 0, 2,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-5,5, 0, 2,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-3,5, 0, 2,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-4,5, 0, 2,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-2,5, 0, 2,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-7,5, 0, 5,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-7,5, 0, 4,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-7,5, 0, 5,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+  <GameObject name="obstacle(Clone)" position="(-7,5, 0, 5,5)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1, 1, 1)" mesh="obstacle(Clone).obj" />
+</root>

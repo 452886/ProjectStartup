@@ -63,7 +63,7 @@ void UnityImportScene::_initializeScene()
     //SCENE SETUP
     
     //Default template is char
-    rapidxml::file<> xmlFile("mge/levels/withmaterials_export.xml");
+    rapidxml::file<> xmlFile("mge/levels/obstaclePainter_export.xml");
     rapidxml::xml_document<> doc;
     //0 means default flags, parse the cr.p out of it
     doc.parse<0>(xmlFile.data());
@@ -71,7 +71,7 @@ void UnityImportScene::_initializeScene()
     // Find our root node and send it off for further processing
     rapidxml::xml_node<>* root_node = doc.first_node("root");
 
-    _processChildren(root_node, _world);
+    _processLevelData(root_node, _world);
 }
 
 void UnityImportScene::_render() {

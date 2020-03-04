@@ -7,7 +7,6 @@
 class Node
 {
 public:
-	Node();
-	int Number;
+	Node(sf::Vector2i pPosition);
 	sf::Vector2i Position;
 };

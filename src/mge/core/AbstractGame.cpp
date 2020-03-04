@@ -9,7 +9,7 @@
 #include "mge/behaviours/KeysBehaviour.hpp"
 #include "mge/behaviours/HoverBehaviour.hpp"
 
-AbstractGame::AbstractGame() :_window(NULL), _renderer(NULL), _world(NULL), _fps(0)
+AbstractGame::AbstractGame() :_window(NULL), _renderer(NULL), _world(NULL), _fps(0), nodeGraph(NULL)
 {
 	//ctor
 }
@@ -178,6 +178,14 @@ void AbstractGame::_processEvents()
 	}
 }
 
+void AbstractGame::_processLevelData(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
+{
+	//_convertNodegraph(pXmlNode);
+
+
+	_processChildren(pXmlNode, pGameObjectNode);
+}
+
 void AbstractGame::_processChildren(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
 {
 	for (rapidxml::xml_node<>* child = pXmlNode->first_node(); child != NULL; child = child->next_sibling())
@@ -188,8 +196,19 @@ void AbstractGame::_processChildren(rapidxml::xml_node<>* pXmlNode, GameObject* 
 
 void AbstractGame::_processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pGameObjectNode)
 {
+	Nodegraph* ng = nullptr;
+	std::vector<std::vector<sf::Vector2i>> nodeArray2D(0);
+
+
+	ng = new Nodegraph();
+	ng->SetNodeArray2D(nodeArray2D);
+
+
 	GameObject* currentNode = pGameObjectNode;
+
+
 	std::cout << "Processing " << pXmlNode->name() << std::endl;
+
 
 	if (strcmp(pXmlNode->name(), "GameObject") == 0) {
 		GameObject* newNode = _convertGameObject(pXmlNode, currentNode);
@@ -209,6 +228,11 @@ void AbstractGame::_processSingle(rapidxml::xml_node<>* pXmlNode, GameObject* pG
 		_world->setMainCamera(newNode);
 		std::cout << newNode->getName() << " added to " << currentNode->getName() << std::endl;
 		currentNode = newNode;
+	}
+	else if (strcmp(pXmlNode->name(), "Node") == 0) 
+	{
+		Node* newNode = _convertNode(pXmlNode);
+		ng->CreateNode(newNode->Position);
 	}
 
 	_processChildren(pXmlNode, currentNode);
@@ -435,29 +459,50 @@ Camera* AbstractGame::_convertCamera(rapidxml::xml_node<>* pXmlNode, GameObject*
 }
 Nodegraph* AbstractGame::_convertNodegraph(rapidxml::xml_node<>* pXmlNode)
 {
-	std::vector<std::vector<sf::Vector2i>> nodeArray2D;
+	std::cout << "1 reached :3" << std::endl;
+	Nodegraph* ng = nullptr;
 
-	Nodegraph* nodegraph = new Nodegraph(nodeArray2D);
+	if (strcmp(pXmlNode->name(), "NodeGraph") == 0) {
 
-	for (rapidxml::xml_attribute<>* attrib = pXmlNode->first_attribute();
-		attrib != NULL;
-		attrib = attrib->next_attribute()
-		)
-	{
-		if (attrib->name == "NodeGraph") {
-			for (rapidxml::xml_node<>* child = pXmlNode->first_node(); child != NULL; child = child->next_sibling())
-			{
-				Node* node = _convertNode(child);
+		std::cout << "2 reached :3" << std::endl;
 
-				nodegraph->
-			}
+		std::vector<std::vector<sf::Vector2i>> nodeArray2D;
+
+		ng = new Nodegraph();
+		ng->SetNodeArray2D(nodeArray2D);
+
+		for (rapidxml::xml_node<>* child = pXmlNode->first_node(); child != NULL; child = child->next_sibling())
+		{
+			Node* node = _convertNode(child);
+
+			ng->CreateNode(node->Position);
 		}
 	}
+
+	//for (rapidxml::xml_attribute<>* attrib = pXmlNode->first_attribute();
+	//	attrib != NULL;
+	//	attrib = attrib->next_attribute()
+	//	)
+	//{
+	//	std::cout << "2 reached :3" << std::endl;
+	//	std::string attribName = attrib->name();
+	//	if (attribName == "NodeGraph") {
+	//		for (rapidxml::xml_node<>* child = pXmlNode->first_node(); child != NULL; child = child->next_sibling())
+	//		{
+	//			Node* node = _convertNode(child);
+
+	//			ng->CreateNode(node->Position);
+	//		}
+	//	}
+	//}
+
+	return ng;
 }
 
 Node* AbstractGame::_convertNode(rapidxml::xml_node<>* pXmlNode)
 {
-	Node* node = new Node();
+	int x;
+	int y;
 
 	for (rapidxml::xml_attribute<>* attrib = pXmlNode->first_attribute();
 		attrib != NULL;
@@ -467,17 +512,14 @@ Node* AbstractGame::_convertNode(rapidxml::xml_node<>* pXmlNode)
 		std::cout << attrib->name() << "=" << attrib->value() << std::endl;
 		std::string attribName = attrib->name();
 
-
-		if (attribName == "number") {
-			node->Number = (int)attrib->value();
-		}
-		else if (attribName == "x") {
-			node->Position.x = (int)attrib->value();
+		if (attribName == "x") {
+			x = (int)attrib->value();
 		}
 		else if (attribName == "y") {
-			node->Position.y = (int)attrib->value();
+			y = (int)attrib->value();
 		}
 	}
+	Node* node = new Node(sf::Vector2i(x, y));
 	return node;
 }
 
