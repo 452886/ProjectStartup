@@ -173,6 +173,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp" />
+    <ClInclude Include="..\src\mge\actors\Actor.hpp" />
     <ClInclude Include="..\src\mge\actors\Player.hpp" />
     <ClInclude Include="..\src\mge\behaviours\AbstractBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\BackgroundMusicBehaviour.hpp" />
@@ -204,10 +205,10 @@
     <ClInclude Include="..\src\mge\Scenes\UnityImportScene.hpp" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
     <ClInclude Include="..\src\mge\util\HelperMethods.hpp" />
-    <ClInclude Include="Actor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\mge\actors\Actor.cpp" />
     <ClCompile Include="..\src\mge\actors\Player.cpp" />
     <ClCompile Include="..\src\mge\behaviours\AbstractBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\BackgroundMusicBehaviour.cpp" />
@@ -238,7 +239,6 @@
     <ClCompile Include="..\src\mge\Scenes\UnityImportScene.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
     <ClCompile Include="..\src\mge\util\HelperMethods.cpp" />
-    <ClCompile Include="Actor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

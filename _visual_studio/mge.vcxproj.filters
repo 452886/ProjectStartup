@@ -126,7 +126,7 @@
     <ClInclude Include="..\src\mge\actors\Player.hpp">
       <Filter>MGE Source files\mge\actors</Filter>
     </ClInclude>
-    <ClInclude Include="Actor.hpp">
+    <ClInclude Include="..\src\mge\actors\Actor.hpp">
       <Filter>MGE Source files\mge\actors</Filter>
     </ClInclude>
   </ItemGroup>
@@ -224,7 +224,7 @@
     <ClCompile Include="..\src\mge\actors\Player.cpp">
       <Filter>MGE Source files\mge\actors</Filter>
     </ClCompile>
-    <ClCompile Include="Actor.cpp">
+    <ClCompile Include="..\src\mge\actors\Actor.cpp">
       <Filter>MGE Source files\mge\actors</Filter>
     </ClCompile>
   </ItemGroup>

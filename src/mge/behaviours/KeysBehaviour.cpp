@@ -2,59 +2,65 @@
 #include "mge/core/GameObject.hpp"
 #include <SFML/Window/Keyboard.hpp>
 
-KeysBehaviour::KeysBehaviour(float pMoveSpeed, float pTurnSpeed): AbstractBehaviour(), _moveSpeed(pMoveSpeed), _turnSpeed(pTurnSpeed)
+KeysBehaviour::KeysBehaviour(float pMoveSpeed, float pTurnSpeed, float pTileSize) : AbstractBehaviour(), _moveSpeed(pMoveSpeed), _turnSpeed(pTurnSpeed)
 {
-
+	tileSize = pTileSize;
+	pressedKeys['w'] = false;
+	pressedKeys['a'] = false;
+	pressedKeys['s'] = false;
+	pressedKeys['d'] = false;
 }
 
 KeysBehaviour::~KeysBehaviour()
 {
 }
 
-void KeysBehaviour::update( float pStep )
+void KeysBehaviour::update(float pStep)
 {
 	float moveSpeed = 0.0f; //default if no keys
 	float turnSpeed = 0.0f;
+	updatePressedKeys();
 
-	moveSpeed = _moveSpeed;
 
-	glm::vec3 directionVector = glm::vec3(0, 0, 0);
+}
 
-	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::W )) {
-		directionVector += glm::vec3(0, 0, 1);
+void KeysBehaviour::updatePressedKeys()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+		pressedKeys['w'] = true;
 	}
-	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::S )) {
-		directionVector += glm::vec3(0, 0, -1);
+	else {
+		pressedKeys['w'] = false;
 	}
-	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::D )) {
-		directionVector += glm::vec3(1, 0, 0);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+		pressedKeys['s'] = true;
 	}
-	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::A )) {
-		directionVector += glm::vec3(-1, 0, 0);
+	else {
+		pressedKeys['s'] = false;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-		directionVector += glm::vec3(0, 1, 0);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+		pressedKeys['d'] = true;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {
-		directionVector += glm::vec3(0, -1, 0);
+	else {
+		pressedKeys['d'] = false;
 	}
-	if (directionVector.x != 0 || directionVector.y != 0 || directionVector.z != 0) {
-		directionVector = glm::normalize(directionVector);
-		directionVector = directionVector * (moveSpeed * pStep);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+		pressedKeys['a'] = true;
+	}
+	else {
+		pressedKeys['a'] = false;
+	}
+}
 
-		//translate the object in its own local space
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)) {
-			directionVector *= 0.2f;
+bool KeysBehaviour::keyDown(char key)
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(key)))
+	{
+		if (pressedKeys[key] != true)
+		{
+			return true;
+			pressedKeys[key] = true;
 		}
-		_owner->translate(directionVector);
 	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
-		_owner->rotate(pStep * glm::radians(-45.0f), glm::vec3(0, 1, 0.0f));
-
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
-		_owner->rotate(pStep * glm::radians(45.0f), glm::vec3(0, 1, 0.0f));
-	}
+	return false;
 }

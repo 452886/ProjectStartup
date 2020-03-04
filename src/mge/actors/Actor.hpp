@@ -1,18 +1,19 @@
 #pragma once
-#include "mge/core/GameObject.hpp";
 #include <string>
+#include "mge/core/GameObject.hpp";
 #include "mge/nodegraph/Nodegraph.hpp"
 
-class Actor : GameObject
+class Actor : public GameObject
 {
 public:
-	Actor(Nodegraph& pNodeGraph);
+	Actor(Nodegraph* pNodeGraph);
 	void MoveTowards(std::string node);
 	void SetPosition(std::string node);
+	std::string Position;
 
-private:
+protected:
 	float movementSpeed;
 	std::string currentNode;
-	Nodegraph& nodegraph;
+	Nodegraph* nodegraph;
 };
 
